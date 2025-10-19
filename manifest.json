@@ -1,10 +1,11 @@
 {
-  "name": "投手トレーニング2025オフシーズン｜adjustment-lab",
-  "short_name": "PitcherTraining2025",
+  "name": "FKK Pitcher 2025 Winter Training",
+  "short_name": "FKK Pitcher",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0d1117",
   "theme_color": "#0d1117",
+  "description": "Equal Load System — 呼吸 × 出力 × 流れ を再構築する冬期投手プログラム。",
   "icons": [
     {
       "src": "icons/icon-192.png",
@@ -15,6 +16,12 @@
       "src": "icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "icons/maskable-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
