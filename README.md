@@ -1,1 +1,0 @@
-# pitcher-training-2025
