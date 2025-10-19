@@ -24,24 +24,293 @@ if ('serviceWorker' in navigator) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FKK投手トレーニング2025オフシーズン</title>
 <style>
-  body{background:#0d1117;color:#e5e7eb;font-family:'Noto Sans JP',sans-serif;margin:0;padding:40px 20px 80px;line-height:1.8;}
-  header{text-align:center;border-bottom:1px solid #1f2937;margin-bottom:30px;padding-bottom:15px;}
-  h1{color:#60a5fa;font-size:1.8rem;letter-spacing:0.05em;}
-  h2{color:#93c5fd;margin-top:40px;border-left:4px solid #60a5fa;padding-left:10px;}
-  table{width:100%;border-collapse:collapse;background:#111827;margin-top:15px;}
-  th,td{border:1px solid #1f2937;padding:10px;text-align:center;}
-  th{background:#1e3a8a;color:#f1f5f9;}
-  button{background:#2563eb;color:#fff;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:0.9rem;}
-  button:hover{background:#1d4ed8;}
-  section{margin-top:25px;}
-  footer{text-align:center;margin-top:60px;color:#9ca3af;}
-  .modal{display:none;position:fixed;z-index:50;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgba(0,0,0,0.7);}
-  .modal-content{background:#111827;margin:10% auto;padding:20px;border:1px solid #374151;width:90%;max-width:500px;border-radius:10px;}
-  .close{color:#93c5fd;float:right;font-size:24px;font-weight:bold;cursor:pointer;}
-  .close:hover{color:#3b82f6;}
-  .modal h3{color:#60a5fa;margin-top:0;}
-  .modal p{line-height:1.7;}
+  body {
+    background: #0d1117;
+    color: #e5e7eb;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    padding: 40px 20px 80px;
+    line-height: 1.8;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  header {
+    text-align: center;
+    border-bottom: 1px solid #1f2937;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+  }
+
+  h1 {
+    color: #60a5fa;
+    font-size: 1.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  h2 {
+    color: #93c5fd;
+    margin-top: 40px;
+    border-left: 4px solid #60a5fa;
+    padding-left: 10px;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #111827;
+    margin-top: 15px;
+    overflow-x: auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  th, td {
+    border: 1px solid #1f2937;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  th {
+    background: #1e3a8a;
+    color: #f1f5f9;
+  }
+
+  button {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+
+  button:hover {
+    background: #1d4ed8;
+  }
+
+  section {
+    margin-top: 25px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    color: #9ca3af;
+    font-size: 0.9rem;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 50;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0,0,0,0.7);
+    padding: 10px;
+  }
+
+  .modal-content {
+    background: #111827;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #374151;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+  }
+
+  .close {
+    color: #93c5fd;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover {
+    color: #3b82f6;
+  }
+
+  .modal h3 {
+    color: #60a5fa;
+    margin-top: 0;
+  }
+
+  .modal p {
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  /* ===== スマホ対応 ===== */
+  @media screen and (max-width: 768px) {
+    body {
+      padding: 20px 14px 60px;
+      font-size: 0.95rem;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      border-left-width: 3px;
+    }
+
+    th, td {
+      font-size: 0.85rem;
+      padding: 8px;
+    }
+
+    table {
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+
+    button {
+      padding: 5px 10px;
+      font-size: 0.85rem;
+    }
+
+    .modal-content {
+      width: 95%;
+      padding: 15px;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      font-size: 0.8rem;
+    }
+  }
 </style>
+
+<style>
+  /* ==============================
+     プレイヤーリンク（選手ボタン）
+     ============================== */
+  #players div a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    min-width: 140px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  #players div a:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+  }
+
+  /* ==============================
+     テーブル スクロール・整列補正
+     ============================== */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  th, td {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  /* ==============================
+     長文段落の可読性向上
+     ============================== */
+  #summary p,
+  #program p,
+  #players p {
+    text-align: left;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ==============================
+     スマホ表示最適化
+     ============================== */
+  @media screen and (max-width: 768px) {
+    #players div {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    #players div a {
+      width: 100%;
+      min-width: unset;
+      margin: 0;
+      padding: 12px 0;
+      font-size: 1rem;
+    }
+
+    th, td {
+      padding: 6px 8px;
+    }
+
+    #program p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      padding: 0 10px;
+    }
+
+    #summary, #program, #players {
+      margin-bottom: 40px;
+    }
+
+    /* モーダル位置調整 */
+    .modal-content {
+      margin-top: 25%;
+      width: 92%;
+      font-size: 0.9rem;
+    }
+
+    .modal h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.6em;
+    }
+
+    .modal p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-bottom: 30px;
+      line-height: 1.6;
+    }
+  }
+</style>
+  
 </head>
 <body>
 
