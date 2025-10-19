@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>チームトレーニング2025｜adjustment-lab</title>
+<title>投手トレーニング2025オフシーズン｜adjustment-lab</title>
 <style>
   body{background:#0d1117;color:#e5e7eb;font-family:'Noto Sans JP',sans-serif;margin:0;padding:40px 20px 80px;line-height:1.8;}
   header{text-align:center;border-bottom:1px solid #1f2937;margin-bottom:30px;padding-bottom:15px;}
@@ -16,7 +16,6 @@
   button:hover{background:#1d4ed8;}
   section{margin-top:25px;}
   footer{text-align:center;margin-top:60px;color:#9ca3af;}
-  /* --- モーダル --- */
   .modal{display:none;position:fixed;z-index:50;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgba(0,0,0,0.7);}
   .modal-content{background:#111827;margin:10% auto;padding:20px;border:1px solid #374151;width:90%;max-width:500px;border-radius:10px;}
   .close{color:#93c5fd;float:right;font-size:24px;font-weight:bold;cursor:pointer;}
@@ -28,7 +27,7 @@
 <body>
 
 <header>
-  <h1>チームトレーニング2025｜adjustment-lab</h1>
+  <h1>投手トレーニング2025オフシーズン｜adjustment-lab</h1>
   <p>Equal Load System ― 環境に応じて同等負荷を得る「呼吸 × 出力 × 流れ」</p>
 </header>
 
@@ -74,80 +73,298 @@
       <td>呼吸系・出力系・回旋系サーキット <button onclick="openModal('e')">詳細</button></td>
     </tr>
   </table>
+
+  <p style="margin-top:10px; color:#9ca3af; line-height:1.8;">
+  本プログラムは、各環境（a〜e）で<strong>同等の生理的・動作的効果</strong>が得られるように設計されています。<br>
+  選手は天候・施設環境に応じて任意のパターンを選択しても、トレーニング効果の偏りが生じない構成となっています。<br><br>
+  ただし環境特性に応じた優先度は以下の通りです。<br>
+  ① 屋外（a）｜呼吸と滑走リズムを自然に再教育でき、空間の中で動作感覚を統合できる。<br>
+  ② 自走式トレッドミル（d）｜骨盤主導と地面反力の再現性が高く、出力制御力を育てる。<br>
+  ③ 屋内（b）｜短距離反応と姿勢制御に優れる。<br>
+  ④ 電動トレッドミル（c）｜呼吸テンポ教育とフォーム維持に適す。<br>
+  ⑤ サーキット（e）｜出力よりも呼吸・分離・ねじれ制御の教育に特化。<br><br>
+  どの環境を選択しても、<strong>「呼吸 × 出力 × 流れ」</strong>の基礎原理は一貫して再現されます。<br>
+  ※RPE（自覚的運動強度）は自分が感じる運動強度です。
+  </p>
 </section>
 
-<section id="notes">
-  <h2>実施メモ</h2>
-  <p>・各パターンは週2〜3回の頻度で選択実施可能。<br>
-     ・どの環境でも<strong>RPE7〜8・60〜90分</strong>で同等負荷となる設計。<br>
-     ・サーキットeでは肋骨回旋を含むが、動作精度を要するため<strong>指導下実施が望ましい</strong>。<br>
-     ・目的は“限界で頑張る”ではなく、“呼吸で出力を導く”。</p>
-</section>
-
-<footer>
-  <p>© 2025 adjustment-lab | Design & Concept by H. Nishimoto</p>
-</footer>
-
-<!-- ===== モーダル群 ===== -->
+<!-- ==================== A：屋外 ==================== -->
 <div id="a" class="modal"><div class="modal-content">
 <span class="close" onclick="closeModal('a')">&times;</span>
 <h3>a｜屋外（球場・外周）</h3>
-<p><strong>目的：</strong> 広い空間で呼吸リズムと出力を同期させ、骨盤主導の滑走を再教育。</p>
-<p><strong>フォーム：</strong> 背中を丸めず、骨盤を前に押し出す感覚で重心を運ぶ。</p>
-<p><strong>強度：</strong> 前傾テンポ走20m×6／<strong>ペース走800m×3（HR150前後）</strong>／流し30m×3。総時間約70分。<br>
-　※ペース走では「長く走れるが少しキツい」テンポを維持し、呼吸リズム（吸→吐→2拍）を崩さない。</p>
-<p><strong>誤り例：</strong> 踏み込みすぎ・上体突っ込み・呼吸を止める。</p>
+<p><strong>目的：</strong> 呼吸リズムと出力の同期、骨盤主導による滑走感覚の再教育。</p>
+<p><strong>メニュー構成：</strong><br>
+・前傾テンポ走 <button onclick="openModal('a-tempo')">解説</button><br>
+・ペース走 <button onclick="openModal('a-pace')">解説</button><br>
+・流し走 <button onclick="openModal('a-nagashi')">解説</button>
+</p>
+<p><strong>推奨強度：</strong> RPE7前後／HR150bpm前後／60〜75分</p>
+<p><strong>誤り例：</strong> 呼吸を止める・上体が先行する・接地が強すぎる。</p>
 </div></div>
 
+<div id="a-tempo" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('a-tempo')">&times;</span>
+<h3>前傾テンポ走</h3>
+<p><strong>目的：</strong> 骨盤を主導にした重心移動と、呼吸リズムの同期を再教育する。</p>
+<p><strong>方法：</strong> 軽い前傾姿勢からスタートし、胸を張らずに骨盤を前へ滑らせる。<br>
+吐く息に合わせて地面を押し出し、吸気で姿勢を立て直す。<br>
+ストライドを伸ばそうとせず、テンポを一定に保つ（リズム重視）。</p>
+<p><strong>強度：</strong> 20m×6〜8本／RPE6〜7／HR140〜150。</p>
+<p><strong>誤り例：</strong> 上体から倒れ込む・腕でリズムを作る・吸気が浅い。</p>
+</div></div>
+
+<div id="a-pace" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('a-pace')">&times;</span>
+<h3>ペース走</h3>
+<p><strong>目的：</strong> 呼吸リズムの安定化と有酸素能力の向上。</p>
+<p><strong>方法：</strong> HR150前後を維持できるテンポで800m×3を走る。<br>
+呼吸リズム（吸2拍→吐2拍）を崩さず、力まずに滑走。<br>
+姿勢は胸郭を広げすぎず、骨盤でリード。</p>
+<p><strong>強度：</strong> 800m×3（レスト90秒）／RPE7／HR150±5。</p>
+<p><strong>誤り例：</strong> ペースが上がりすぎる・肩が上がる・呼吸が乱れる。</p>
+</div></div>
+
+<div id="a-nagashi" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('a-nagashi')">&times;</span>
+<h3>流し走</h3>
+<p><strong>目的：</strong> 動作連動と反応の滑らかさを高める。</p>
+<p><strong>方法：</strong> 30〜40mを7〜8割のスピードで滑るように走る。<br>
+骨盤を前に流す感覚で、腕と脚をリズムで連動させる。</p>
+<p><strong>強度：</strong> 30m×3〜5本／RPE6／HR140前後。</p>
+<p><strong>誤り例：</strong> 接地を強く打つ・腕が先行・重心が上下動する。</p>
+</div></div>
+
+<!-- ==================== B：屋内 ==================== -->
 <div id="b" class="modal"><div class="modal-content">
 <span class="close" onclick="closeModal('b')">&times;</span>
 <h3>b｜屋内（20m前後）</h3>
-<p><strong>目的：</strong> 短距離での反応速度と姿勢制御を高め、骨盤と胸郭の分離を促す。</p>
-<p><strong>フォーム：</strong> 骨盤を先行させ、胸を後追いさせる感覚。呼吸を止めない。</p>
-<p><strong>強度：</strong> 反応スプリント10m×8／MBスロー10回×3set／<strong>リズム走30秒×8本×2set（RPE7・HR150前後）</strong>。総時間約70分。</p>
-<p><strong>誤り例：</strong> 腕主導・胸が先行・呼吸が浅い。</p>
+<p><strong>目的：</strong> 限られた空間での反応速度と姿勢制御を鍛え、骨盤主導の出力を維持する。</p>
+<p><strong>メニュー構成：</strong><br>
+・反応スプリント <button onclick="openModal('b-react')">解説</button><br>
+・メディシンボールスロー（MBスロー） <button onclick="openModal('b-mb')">解説</button><br>
+・フォームドリル <button onclick="openModal('b-form')">解説</button></p>
+<p><strong>推奨強度：</strong> RPE7〜8／HR155前後／60分程度。</p>
+<p><strong>誤り例：</strong> 初動で力む・姿勢が起きる・骨盤が遅れる。</p>
 </div></div>
 
+<!-- -------- 反応スプリント -------- -->
+<div id="b-react" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('b-react')">&times;</span>
+<h3>b-1｜反応スプリント</h3>
+<p><strong>目的：</strong> 外的刺激に対する反応速度と骨盤からの初動出力を高める。</p>
+<p><strong>方法：</strong><br>
+1. 10〜15mの区間を設定し、合図（声・光）に反応してスタート。<br>
+2. 骨盤で押し出す意識で、上体を遅らせて滑るように加速。<br>
+3. スタート直後の「1歩目の呼吸」を吐くことで体幹を安定させる。</p>
+<p><strong>強度：</strong> 10m×5〜6本／RPE8／HR160前後。</p>
+<p><strong>誤り例：</strong> 腕で動く・呼吸を止める・接地が強すぎる。</p>
+</div></div>
+
+<!-- -------- MBスロー -------- -->
+<div id="b-mb" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('b-mb')">&times;</span>
+<h3>b-2｜メディシンボールスロー（MBスロー）</h3>
+<p><strong>目的：</strong> 骨盤→胸郭→腕の出力連鎖を整え、呼吸と動作の一体化を作る。</p>
+<p><strong>方法：</strong><br>
+1. 3kgのメディシンボールを持ち、膝立ちまたは立位で胸の前に構える。<br>
+2. 吐く息に合わせて骨盤から回旋し、胸郭を遅らせて投げ出す。<br>
+3. 反対方向への戻り動作（吸気）で姿勢をリセットする。</p>
+<p><strong>強度：</strong> 各方向×10回×3set／RPE7。</p>
+<p><strong>誤り例：</strong> 腕で投げる・呼吸を止める・骨盤が動かない。</p>
+</div></div>
+
+<!-- -------- フォームドリル -------- -->
+<div id="b-form" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('b-form')">&times;</span>
+<h3>b-3｜フォームドリル</h3>
+<p><strong>目的：</strong> 骨盤リードと姿勢制御を中心に、ランニング時の動作連動を再教育する。</p>
+<p><strong>方法：</strong><br>
+1. 20mの区間でスキップ・ニーレイズ・トゥタップなどを組み合わせる。<br>
+2. 呼吸を「吸って立つ→吐いて押す」で統一。<br>
+3. 接地音が静かであれば動作の連動が良好。</p>
+<p><strong>強度：</strong> 各種目2往復×3種目（計6本）／RPE6〜7。</p>
+<p><strong>誤り例：</strong> ストライドを広げる・腰を反る・肩に力が入る。</p>
+</div></div>
+
+<!-- ==================== C：電動トレッドミル ==================== -->
 <div id="c" class="modal"><div class="modal-content">
 <span class="close" onclick="closeModal('c')">&times;</span>
 <h3>c｜電動式トレッドミル</h3>
-<p><strong>目的：</strong> ペースを一定に保ちながら呼吸テンポと出力維持を養う。</p>
-<p><strong>フォーム：</strong> 吸気で立ち上がり、呼気で沈むリズムを作る。上体は脱力。</p>
-<p><strong>強度：</strong> <strong>テンポ走（HR150前後）4分×3set＋変速走30/60秒×6set</strong>。総時間約70分。</p>
-<p><strong>誤り例：</strong> ペースを上げすぎて呼吸が乱れる・上体固定しすぎ。</p>
+<p><strong>目的：</strong> 一定リズムでの呼吸テンポを作り、フォームの再現性を高める。</p>
+<p><strong>メニュー構成：</strong><br>
+・テンポ走 <button onclick="openModal('c-tempo')">解説</button><br>
+・変速走 <button onclick="openModal('c-shift')">解説</button><br>
+・ブリージングウォーク <button onclick="openModal('c-breath')">解説</button></p>
+<p><strong>推奨強度：</strong> RPE6〜7／HR140〜150／45〜60分。</p>
+<p><strong>誤り例：</strong> 呼吸を合わせずに走る・上体でリズムを作る・速度変化に力む。</p>
 </div></div>
 
-<div id="d" class="modal"><div class="modal-content">
-<span class="close" onclick="closeModal('d')">&times;</span>
-<h3>d｜自走式トレッドミル</h3>
-<p><strong>目的：</strong> 自重推進による骨盤主導の加速と地面反力の再獲得。</p>
-<p><strong>フォーム：</strong> 胸を張り、骨盤を押し出す。足で回すのではなく“滑らせる”意識。</p>
-<p><strong>強度：</strong> 15秒スプリント×8set（休息75秒）＋スティック走10秒×4set／<strong>20秒スプリント＋40秒ジョグ×6set×2（HR150前後）</strong>。総時間約70分。</p>
-<p><strong>誤り例：</strong> ピッチ過多で腰が抜ける・重心が後ろ。</p>
+<!-- -------- テンポ走 -------- -->
+<div id="c-tempo" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('c-tempo')">&times;</span>
+<h3>c-1｜テンポ走</h3>
+<p><strong>目的：</strong> 呼吸テンポを安定させ、動作の持続力を高める。</p>
+<p><strong>方法：</strong><br>
+1. 設定速度を一定（最大速度の70〜75%）に保つ。<br>
+2. 呼吸リズム（吸2拍→吐2拍）で一定ペースを維持。<br>
+3. 骨盤の滑り出しを感じながら、上半身は脱力。</p>
+<p><strong>強度：</strong> 3〜5分×4set／RPE6〜7／HR145前後。</p>
+<p><strong>誤り例：</strong> 呼吸が止まる・上体を起こす・ピッチが崩れる。</p>
 </div></div>
 
+<!-- -------- 変速走 -------- -->
+<div id="c-shift" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('c-shift')">&times;</span>
+<h3>c-2｜変速走</h3>
+<p><strong>目的：</strong> 呼吸と出力の変化に身体を適応させ、フォームの安定性を高める。</p>
+<p><strong>方法：</strong><br>
+1. 1分ごとに速度を「遅→中→速→中→遅」と変化。<br>
+2. 各区間で呼吸テンポ（2:2）を変えずに維持。<br>
+3. 骨盤の動きが止まらないように注意。</p>
+<p><strong>強度：</strong> 15分×2set／RPE7／HR150前後。</p>
+<p><strong>誤り例：</strong> 速度変化で上体が硬直・吸気が浅くなる。</p>
+</div></div>
+
+<!-- -------- ブリージングウォーク -------- -->
+<div id="c-breath" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('c-breath')">&times;</span>
+<h3>c-3｜ブリージングウォーク</h3>
+<p><strong>目的：</strong> 歩行中の呼吸コントロールを鍛え、回復局面での内圧制御を習得する。</p>
+<p><strong>方法：</strong><br>
+1. 速度3〜4km/hでウォーキングしながら呼吸リズムを整える。<br>
+2. 吸気で胸郭を広げ、吐気で骨盤を前に滑らせる。<br>
+3. 腕は前後ではなく“上下に流れる”感覚で。</p>
+<p><strong>強度：</strong> 5分×3set／RPE5／HR120〜130。</p>
+<p><strong>誤り例：</strong> 胸で呼吸する・歩幅が大きすぎる・腕でバランスを取る。</p>
+</div></div>
+
+<!-- ==================== E：屋内サーキット ==================== -->
 <div id="e" class="modal"><div class="modal-content">
 <span class="close" onclick="closeModal('e')">&times;</span>
 <h3>e｜屋内サーキット（呼吸／出力／肋骨回旋）</h3>
-<p><strong>目的：</strong> 呼吸・出力・ねじれ制御を統合し、身体全体の連動を整える。</p>
-<p><strong>構成：</strong><br>
-① <strong>呼吸連動サーキット（Breathing Coordination Circuit）</strong><br>
-・目的：呼吸を動きの起点に置き、吸気で姿勢を立て、呼気で出力を安定させる。<br>
-・構成：<br>
-　- ブリージング・クロール（仰向け）30秒<br>
-　- クワドラペッド・ブレス（四つ這い）30秒<br>
-　- ハーフニー・リブターン（片膝立ち・左右）各30秒<br>
-　- スタンディング・ブリージング・リーチ 30秒<br>
-　- クロスアーム・ディープブレス（座位）30秒<br>
-・強度：各種目30秒×3set（サーキット約6分×3set＝約20分）<br>
-・休息：種目間15秒／セット間60〜90秒／RPE6〜7<br>
-・誤り例：胸だけで吸う／腹圧が抜ける／呼吸停止／姿勢崩壊。<br><br>
-② 出力反応サーキット（スクワット・ジャンプ・スプリントリズム×3set）<br>
-③ 肋骨回旋サーキット（ニーリングリブターン／スプリットローテーション／プランクローテーション／スウィープ／ブリージングリーチ）</p>
-<p><strong>総強度：</strong> 各サーキット6〜8分×3set（総時間約70分／RPE7〜8）。</p>
-<p><strong>誤り例：</strong> 肩で回す・骨盤が回る・呼吸を止める。<br>
-<em>※肋骨回旋は動作精度が重要なため、可能であれば指導下で実施。</em></p>
+<p><strong>目的：</strong> 呼吸・出力・ねじれ制御を統合し、全身の連動精度を高める。</p>
+<p><strong>メニュー構成：</strong><br>
+① 呼吸連動サーキット <button onclick="openModal('e-breath')">解説</button><br>
+② 出力反応サーキット <button onclick="openModal('e-power')">解説</button><br>
+③ 肋骨回旋サーキット <button onclick="openModal('e-rib')">解説</button></p>
+<p><strong>推奨強度：</strong> RPE7／60〜70分／HR140〜150。</p>
+<p><strong>誤り例：</strong> 肩で回す・骨盤が回る・呼吸を止める。</p>
 </div></div>
+
+<!-- -------- 呼吸連動サーキット -------- -->
+<div id="e-breath" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-breath')">&times;</span>
+<h3>e-1｜呼吸連動サーキット</h3>
+<p><strong>目的：</strong> 呼吸で姿勢・出力を導く感覚を再教育する。</p>
+<p><strong>方法：</strong><br>
+1. 仰向けまたは四つ這いで「吸って伸びる」「吐いて沈む」を繰り返す。<br>
+2. 吐気に合わせて体幹を安定させ、吸気で骨盤をリリース。<br>
+3. 呼吸による内圧変化で動作をコントロールする。</p>
+<p><strong>強度：</strong> 各姿勢30秒×3set／RPE6。</p>
+<p><strong>誤り例：</strong> 胸で呼吸・腹を膨らませすぎる・首に力が入る。</p>
+</div></div>
+
+<!-- -------- 出力反応サーキット -------- -->
+<div id="e-power" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-power')">&times;</span>
+<h3>e-2｜出力反応サーキット</h3>
+<p><strong>目的：</strong> 呼吸と出力を瞬時に切り替える能力を高める。</p>
+<p><strong>方法：</strong><br>
+1. ジャンプ、スクワット、スプリントリズムなどを3種目連続で実施。<br>
+2. 吐気で出力、吸気で回復を繰り返す。<br>
+3. 各種目の切り替えでリズムを崩さず「動作を止めない」こと。</p>
+<p><strong>強度：</strong> 各種目20秒×3set／RPE8／HR160前後。</p>
+<p><strong>誤り例：</strong> 反動で跳ねる・呼吸を止める・テンポが乱れる。</p>
+</div></div>
+
+<!-- -------- 肋骨回旋サーキット -------- -->
+<div id="e-rib" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-rib')">&times;</span>
+<h3>e-3｜肋骨回旋サーキット</h3>
+<p><strong>目的：</strong> 肋骨と肩甲帯の分離を高め、体幹のねじれ制御を教育する。</p>
+<p><strong>構成：</strong><br>
+① ニーリングリブターン <button onclick="openModal('e-rib1')">解説</button><br>
+② スプリットローテーション <button onclick="openModal('e-rib2')">解説</button><br>
+③ ツイストクランチ <button onclick="openModal('e-rib3')">解説</button><br>
+④ プランクローテーション <button onclick="openModal('e-rib4')">解説</button><br>
+⑤ ブリージングリーチ <button onclick="openModal('e-rib5')">解説</button></p>
+<p><strong>総強度：</strong> 各6〜8分×3set（計約25分）／RPE7。</p>
+<p><strong>誤り例：</strong> 骨盤が回る・肩で回す・呼吸を止める。</p>
+</div></div>
+
+<!-- ===== 肋骨回旋5種目 ===== -->
+
+<!-- ニーリングリブターン -->
+<div id="e-rib1" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-rib1')">&times;</span>
+<h3>ニーリングリブターン</h3>
+<p><strong>目的：</strong> 骨盤を固定した状態で肋骨の回旋を引き出す。</p>
+<p><strong>方法：</strong><br>
+1. 片膝立ち姿勢で両腕を前方に伸ばす。<br>
+2. 吐気に合わせて胸郭を回旋させ、骨盤は正面を維持。<br>
+3. 吸気で戻す。</p>
+<p><strong>強度：</strong> 各方向10回×2set／RPE6。</p>
+<p><strong>誤り例：</strong> 骨盤が回る・腕で捻る・呼吸を止める。</p>
+</div></div>
+
+<!-- スプリットローテーション -->
+<div id="e-rib2" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-rib2')">&times;</span>
+<h3>スプリットローテーション</h3>
+<p><strong>目的：</strong> 前後に分けた脚位で、骨盤と肋骨の分離回旋を作る。</p>
+<p><strong>方法：</strong><br>
+1. 前後開脚のスプリット姿勢をとる。<br>
+2. 前脚側へ肋骨を回旋、後脚側で骨盤を安定。<br>
+3. 吐く息で回旋、吸気で戻す。</p>
+<p><strong>強度：</strong> 各方向10回×2set／RPE6〜7。</p>
+<p><strong>誤り例：</strong> 膝が動く・腰を反る・呼吸が浅い。</p>
+</div></div>
+
+<!-- ツイストクランチ -->
+<div id="e-rib3" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-rib3')">&times;</span>
+<h3>ツイストクランチ</h3>
+<p><strong>目的：</strong> 肋骨回旋と肩甲帯の分離を教育する。</p>
+<p><strong>方法：</strong><br>
+1. 仰向けで膝を90°に立てる。<br>
+2. 右（左）手を左大腿の上に置き、反対の手は床に。<br>
+3. 吐気で肋骨を右（左）方向に回旋し、手を大腿から膝へ滑らせる。<br>
+4. 吸気で戻す。<br>
+5. 肩を上げず、肋骨の動きで手が導かれる感覚を意識。</p>
+<p><strong>強度：</strong> 各方向10〜12回×2set／RPE6〜7。</p>
+<p><strong>誤り例：</strong> 肩で回す・腹筋で起きる・骨盤が動く。</p>
+</div></div>
+
+<!-- プランクローテーション -->
+<div id="e-rib4" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-rib4')">&times;</span>
+<h3>プランクローテーション</h3>
+<p><strong>目的：</strong> 体幹安定の中で胸郭を独立回旋させる。</p>
+<p><strong>方法：</strong><br>
+1. プランク姿勢をとり、片腕を天井方向に上げる。<br>
+2. 吐気で胸郭を開き、吸気で戻す。<br>
+3. 骨盤は常に正面を維持。</p>
+<p><strong>強度：</strong> 各方向8回×2set／RPE7。</p>
+<p><strong>誤り例：</strong> 腰を反る・骨盤が動く・呼吸を止める。</p>
+</div></div>
+
+<!-- ブリージングリーチ -->
+<div id="e-rib5" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-rib5')">&times;</span>
+<h3>ブリージングリーチ</h3>
+<p><strong>目的：</strong> 呼吸で胸郭を広げながら、上肢リーチによる回旋誘導を行う。</p>
+<p><strong>方法：</strong><br>
+1. 仰向けで片腕を頭上に伸ばし、吸気で肋骨を拡げる。<br>
+2. 吐気でリーチ方向へ滑らせ、胸郭を開く。<br>
+3. 骨盤を固定し、上半身の回旋で誘導。</p>
+<p><strong>強度：</strong> 各方向8回×2set／RPE6。</p>
+<p><strong>誤り例：</strong> 肩で引く・腰を反る・呼吸が浅い。</p>
+</div></div>
+
+<!-- ==================== フッター・スクリプト ==================== -->
+<footer>
+  <p>© 2025 adjustment-lab | Design & Concept by H. Nishimoto</p>
+</footer>
 
 <script>
 function openModal(id){document.getElementById(id).style.display='block';}
