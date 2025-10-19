@@ -112,7 +112,17 @@ th, td {
 </style>
 </head>
 <body>
-
+  
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const password = prompt("パスワードを入力してください：");
+  if (password !== "12yk") {
+    alert("パスワードが違います。");
+    window.location.href = "index.html"; // トップページなどにリダイレクト
+  }
+});
+</script>
+  
 <header>
   <h1>Y. KURODA</h1>
 </header>
