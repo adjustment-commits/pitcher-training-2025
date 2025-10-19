@@ -14,12 +14,6 @@
   th{background:#1e3a8a;color:#f1f5f9;}
   button{background:#2563eb;color:#fff;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:0.9rem;}
   button:hover{background:#1d4ed8;}
-  .player-links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px;}
-  .player-links a{display:inline-block;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:bold;}
-  .k{background:#3b82f6;} .k:hover{background:#2563eb;}
-  .t{background:#ef4444;} .t:hover{background:#b91c1c;}
-  .m{background:#22c55e;} .m:hover{background:#15803d;}
-  .f{background:#facc15;color:#000;} .f:hover{background:#eab308;}
   section{margin-top:25px;}
   footer{text-align:center;margin-top:60px;color:#9ca3af;}
   /* --- モーダル --- */
@@ -35,65 +29,59 @@
 
 <header>
   <h1>チームトレーニング2025｜adjustment-lab</h1>
-  <p>テーマ：持久系と出力系のバランスを整える ― 「呼吸 × 出力 × 流れ」</p>
+  <p>Equal Load System ― 環境に応じて同等負荷を得る「呼吸 × 出力 × 流れ」</p>
 </header>
 
 <section id="summary">
   <h2>チーム全体の傾向</h2>
   <p>平均として基礎的な走力と出力は中水準。<br>
      全体的に“中強度でまとめる傾向”があり、<strong>瞬発局面での呼吸と出力の同期</strong>に課題が見られる。<br>
-     この冬は、<strong>呼吸で動きを導く</strong>ことと、<strong>骨盤を主導にした出力連鎖</strong>の再教育が優先。</p>
+     この冬は、<strong>環境に左右されず同一強度で刺激を与える</strong>ことを目的に、<strong>骨盤主導 × 呼吸連動</strong>を軸に設計。</p>
 </section>
 
 <section id="program">
-  <h2>4週間共通プログラム（週2回×120分）</h2>
+  <h2>環境別プログラム（a〜e）</h2>
   <table>
-    <tr><th>週</th><th>テーマ</th><th>主目的</th><th>メイン内容</th></tr>
+    <tr><th>パターン</th><th>環境</th><th>主目的</th><th>メイン内容</th></tr>
     <tr>
-      <td>WEEK1</td>
-      <td>呼吸と出力の同期</td>
-      <td>呼吸リズムの再教育</td>
-      <td>LSD走・MB基礎スロー・テンポラン <button onclick="openModal('w1')">詳細</button></td>
+      <td>a</td>
+      <td>屋外（球場・外周など）</td>
+      <td>呼吸と出力の連動／滑走感覚の再構築</td>
+      <td>前傾テンポ走・ペース走・流し走 <button onclick="openModal('a')">詳細</button></td>
     </tr>
     <tr>
-      <td>WEEK2</td>
-      <td>骨盤主導の加速</td>
-      <td>初速と反応速度の強化</td>
-      <td>坂道ダッシュ・自走式TM・MB回旋 <button onclick="openModal('w2')">詳細</button></td>
+      <td>b</td>
+      <td>屋内（20m前後）</td>
+      <td>短距離反応と姿勢制御</td>
+      <td>反応スプリント・MBスロー・フォームドリル <button onclick="openModal('b')">詳細</button></td>
     </tr>
     <tr>
-      <td>WEEK3</td>
-      <td>滑走と持久</td>
-      <td>酸素利用効率と動作持久力</td>
-      <td>クーパー走変法・MB連続スロー <button onclick="openModal('w3')">詳細</button></td>
+      <td>c</td>
+      <td>電動式トレッドミル</td>
+      <td>呼吸テンポと出力維持</td>
+      <td>テンポ走・変速走・ブリージングウォーク <button onclick="openModal('c')">詳細</button></td>
     </tr>
     <tr>
-      <td>WEEK4</td>
-      <td>調整と統合</td>
-      <td>出力・呼吸・反応の統合</td>
-      <td>トレッドミル短距離＋ペアMBスロー <button onclick="openModal('w4')">詳細</button></td>
+      <td>d</td>
+      <td>自走式トレッドミル</td>
+      <td>地面反力と骨盤主導の加速</td>
+      <td>15秒スプリント・スティック走・インターバル走 <button onclick="openModal('d')">詳細</button></td>
+    </tr>
+    <tr>
+      <td>e</td>
+      <td>屋内サーキット（呼吸／出力／肋骨回旋）</td>
+      <td>全身連動とねじれ制御</td>
+      <td>呼吸系・出力系・回旋系サーキット <button onclick="openModal('e')">詳細</button></td>
     </tr>
   </table>
 </section>
 
-<section id="players">
-  <h2>個別プログラム（選手別ページ）</h2>
-  <div class="player-links">
-    <a href="k.html" class="k">Y. KURODA｜Kick型</a>
-    <a href="t.html" class="t">Y. TATSUMURA｜Torque型</a>
-    <a href="m.html" class="m">Y. MIYAKE｜Multi型</a>
-    <a href="f.html" class="f">R. FUJIWARA｜Flow型</a>
-  </div>
-  <p style="text-align:center;margin-top:20px;color:#9ca3af;">各リンクから個別の測定結果・フィードバック・トレーニング内容を閲覧可能。</p>
-</section>
-
 <section id="notes">
   <h2>実施メモ</h2>
-  <p>・各セッションは「ウォームアップ→メイン→クールダウン」の流れで統一。<br>
-     ・共通メニューのあとに個別補強を20〜30分実施。<br>
-     ・トレッドミルは電動式＝フォーム確認、自走式＝出力評価として使い分ける。<br>
-     ・疲労指標は心拍・主観RPE・呼吸回数でモニタリング。<br>
-     ・目的は“限界で頑張る”ではなく、“力を通す準備を整える”。</p>
+  <p>・各パターンは週2〜3回の頻度で選択実施可能。<br>
+     ・どの環境でも<strong>RPE7〜8・60〜90分</strong>で同等負荷となる設計。<br>
+     ・サーキットeでは肋骨回旋を含むが、動作精度を要するため<strong>指導下実施が望ましい</strong>。<br>
+     ・目的は“限界で頑張る”ではなく、“呼吸で出力を導く”。</p>
 </section>
 
 <footer>
@@ -101,40 +89,64 @@
 </footer>
 
 <!-- ===== モーダル群 ===== -->
-<div id="w1" class="modal"><div class="modal-content">
-<span class="close" onclick="closeModal('w1')">&times;</span>
-<h3>WEEK1｜呼吸と出力の同期</h3>
-<p><strong>目的：</strong> 呼吸リズムを整え、身体全体で力を通す準備を作る。</p>
-<p><strong>フォーム：</strong> LSD走では「吸って→吐いて」のリズムを一定に、MBスローでは骨盤→胸→腕の順。</p>
-<p><strong>強度：</strong> LSD走3〜4km（70%HRmax）、MBスロー3kg×10回×3set。</p>
-<p><strong>誤り例：</strong> 呼吸を止める・上体が先行する。</p>
+<div id="a" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('a')">&times;</span>
+<h3>a｜屋外（球場・外周）</h3>
+<p><strong>目的：</strong> 広い空間で呼吸リズムと出力を同期させ、骨盤主導の滑走を再教育。</p>
+<p><strong>フォーム：</strong> 背中を丸めず、骨盤を前に押し出す感覚で重心を運ぶ。</p>
+<p><strong>強度：</strong> 前傾テンポ走20m×6／<strong>ペース走800m×3（HR150前後）</strong>／流し30m×3。総時間約70分。<br>
+　※ペース走では「長く走れるが少しキツい」テンポを維持し、呼吸リズム（吸→吐→2拍）を崩さない。</p>
+<p><strong>誤り例：</strong> 踏み込みすぎ・上体突っ込み・呼吸を止める。</p>
 </div></div>
 
-<div id="w2" class="modal"><div class="modal-content">
-<span class="close" onclick="closeModal('w2')">&times;</span>
-<h3>WEEK2｜骨盤主導の加速</h3>
-<p><strong>目的：</strong> 骨盤を動作の起点とし、初速を引き出す。</p>
-<p><strong>フォーム：</strong> 坂道では後脚の股関節で押す、自走式TMでは重心を前へ流す。</p>
-<p><strong>強度：</strong> 20m×8本／TM15秒×8／MB回旋6回×2set。</p>
-<p><strong>誤り例：</strong> 腕で走る・腰が遅れる。</p>
+<div id="b" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('b')">&times;</span>
+<h3>b｜屋内（20m前後）</h3>
+<p><strong>目的：</strong> 短距離での反応速度と姿勢制御を高め、骨盤と胸郭の分離を促す。</p>
+<p><strong>フォーム：</strong> 骨盤を先行させ、胸を後追いさせる感覚。呼吸を止めない。</p>
+<p><strong>強度：</strong> 反応スプリント10m×8／MBスロー10回×3set／<strong>リズム走30秒×8本×2set（RPE7・HR150前後）</strong>。総時間約70分。</p>
+<p><strong>誤り例：</strong> 腕主導・胸が先行・呼吸が浅い。</p>
 </div></div>
 
-<div id="w3" class="modal"><div class="modal-content">
-<span class="close" onclick="closeModal('w3')">&times;</span>
-<h3>WEEK3｜滑走と持久</h3>
-<p><strong>目的：</strong> 有酸素能力を高め、力の“抜け”を防ぐ。</p>
-<p><strong>フォーム：</strong> クーパー走変法ではリズムを守り、MB連続スローは体幹のテンポで投げる。</p>
-<p><strong>強度：</strong> クーパー走2000〜2600m目標／MB3kg×12回×3set。</p>
-<p><strong>誤り例：</strong> ペースを上げすぎる／息が乱れる。</p>
+<div id="c" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('c')">&times;</span>
+<h3>c｜電動式トレッドミル</h3>
+<p><strong>目的：</strong> ペースを一定に保ちながら呼吸テンポと出力維持を養う。</p>
+<p><strong>フォーム：</strong> 吸気で立ち上がり、呼気で沈むリズムを作る。上体は脱力。</p>
+<p><strong>強度：</strong> <strong>テンポ走（HR150前後）4分×3set＋変速走30/60秒×6set</strong>。総時間約70分。</p>
+<p><strong>誤り例：</strong> ペースを上げすぎて呼吸が乱れる・上体固定しすぎ。</p>
 </div></div>
 
-<div id="w4" class="modal"><div class="modal-content">
-<span class="close" onclick="closeModal('w4')">&times;</span>
-<h3>WEEK4｜調整と統合</h3>
-<p><strong>目的：</strong> 呼吸・出力・反応を統合して動きを完成させる。</p>
-<p><strong>フォーム：</strong> TM短距離では反応速度、ペアMBでは連動と呼吸の共有を重視。</p>
-<p><strong>強度：</strong> TM10秒×6〜8本／ペアMB×10回×2set。</p>
-<p><strong>誤り例：</strong> 呼吸が浅い・相手とのリズムが合わない。</p>
+<div id="d" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('d')">&times;</span>
+<h3>d｜自走式トレッドミル</h3>
+<p><strong>目的：</strong> 自重推進による骨盤主導の加速と地面反力の再獲得。</p>
+<p><strong>フォーム：</strong> 胸を張り、骨盤を押し出す。足で回すのではなく“滑らせる”意識。</p>
+<p><strong>強度：</strong> 15秒スプリント×8set（休息75秒）＋スティック走10秒×4set／<strong>20秒スプリント＋40秒ジョグ×6set×2（HR150前後）</strong>。総時間約70分。</p>
+<p><strong>誤り例：</strong> ピッチ過多で腰が抜ける・重心が後ろ。</p>
+</div></div>
+
+<div id="e" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e')">&times;</span>
+<h3>e｜屋内サーキット（呼吸／出力／肋骨回旋）</h3>
+<p><strong>目的：</strong> 呼吸・出力・ねじれ制御を統合し、身体全体の連動を整える。</p>
+<p><strong>構成：</strong><br>
+① <strong>呼吸連動サーキット（Breathing Coordination Circuit）</strong><br>
+・目的：呼吸を動きの起点に置き、吸気で姿勢を立て、呼気で出力を安定させる。<br>
+・構成：<br>
+　- ブリージング・クロール（仰向け）30秒<br>
+　- クワドラペッド・ブレス（四つ這い）30秒<br>
+　- ハーフニー・リブターン（片膝立ち・左右）各30秒<br>
+　- スタンディング・ブリージング・リーチ 30秒<br>
+　- クロスアーム・ディープブレス（座位）30秒<br>
+・強度：各種目30秒×3set（サーキット約6分×3set＝約20分）<br>
+・休息：種目間15秒／セット間60〜90秒／RPE6〜7<br>
+・誤り例：胸だけで吸う／腹圧が抜ける／呼吸停止／姿勢崩壊。<br><br>
+② 出力反応サーキット（スクワット・ジャンプ・スプリントリズム×3set）<br>
+③ 肋骨回旋サーキット（ニーリングリブターン／スプリットローテーション／プランクローテーション／スウィープ／ブリージングリーチ）</p>
+<p><strong>総強度：</strong> 各サーキット6〜8分×3set（総時間約70分／RPE7〜8）。</p>
+<p><strong>誤り例：</strong> 肩で回す・骨盤が回る・呼吸を止める。<br>
+<em>※肋骨回旋は動作精度が重要なため、可能であれば指導下で実施。</em></p>
 </div></div>
 
 <script>
