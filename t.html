@@ -12,24 +12,54 @@
     margin:0;
     padding:40px 20px 80px;
     line-height:1.8;
+    /* 追加：中央寄せレイアウト */
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
   }
   header{text-align:center;border-bottom:1px solid #1f2937;margin-bottom:30px;padding-bottom:15px;}
   h1{color:#ef4444;font-size:1.8rem;letter-spacing:0.05em;}
   h2{color:#f87171;margin-top:40px;border-left:4px solid #ef4444;padding-left:10px;}
-  table{width:100%;border-collapse:collapse;background:#111827;margin-top:15px;}
-  th,td{border:1px solid #1f2937;padding:10px;text-align:center;}
+  table{
+    width:100%;
+    border-collapse:collapse;
+    background:#111827;
+    margin-top:15px;
+    /* 追加：横スクロール&角丸 */
+    display:block;
+    overflow-x:auto;
+    border-radius:8px;
+  }
+  th,td{
+    border:1px solid #1f2937;
+    padding:10px;
+    text-align:center;
+    /* 追加：可読サイズ＆折り返し防止 */
+    font-size:0.95rem;
+    white-space:nowrap;
+  }
   th{background:#7f1d1d;color:#f1f5f9;}
   section{margin-top:25px;}
   .note{border:1px solid #374151;background:#111827;padding:15px;margin-top:15px;}
   .btn-back{display:block;text-align:center;margin-top:60px;}
   .btn-back a{background:#ef4444;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;}
   .btn-back a:hover{background:#b91c1c;}
+
+  /* 追加：スマホ最適化 */
+  @media screen and (max-width: 768px){
+    body{padding:20px 14px 60px;font-size:0.95rem;}
+    h1{font-size:1.4rem;}
+    th,td{font-size:0.85rem;padding:8px;}
+    table{font-size:0.85rem;}
+    footer{font-size:0.8rem;}
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Y. TATSUMUR</h1>
+  <!-- 修正：表記ミスのみ -->
+  <h1>Y. TATSUMURA</h1>
 </header>
 
 <section id="data">
@@ -106,7 +136,7 @@
   <a href="index.html">← チーム共通ページへ戻る</a>
 </div>
 
- <footer>
+<footer>
   <p>© 2025 adjustment-lab | Design & Concept by H. Nishimoto</p>
 </footer>
 
