@@ -308,7 +308,52 @@ if ('serviceWorker' in navigator) {
       padding-bottom: 30px;
       line-height: 1.6;
     }
+
+/* ===============================
+   環境別プログラム：スマホ最適化カード表示
+   =============================== */
+
+/* カードを非表示（PC用は表を優先） */
+.env-cards { display: none; }
+
+/* スマホではカードを表示してテーブル非表示 */
+@media screen and (max-width: 768px) {
+  #program table { display: none; }
+  .env-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
   }
+  .env-card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  }
+  .env-card h3 {
+    color: #93c5fd;
+    margin-top: 0;
+  }
+  .env-card p {
+    margin: 6px 0;
+    line-height: 1.6;
+  }
+  .env-card button {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .env-card button:hover {
+    background: #1d4ed8;
+  }
+}
+
 </style>
   
 </head>
@@ -316,7 +361,7 @@ if ('serviceWorker' in navigator) {
 
 <header>
   <h1>FKK投手トレーニング2025オフシーズン</h1>
-  <p>Equal Load System ― 環境に応じて同等負荷を得る「呼吸 × 出力 × 流れ」</p>
+  <p>Equal Load System <br>― 環境に応じて同等負荷を得る<br>「呼吸 × 出力 × 流れ」</p>
 </header>
 
 <section id="summary">
@@ -329,6 +374,44 @@ if ('serviceWorker' in navigator) {
 <section id="program">
   <h2>環境別プログラム（a〜e）</h2>
   <table>
+    <!-- スマホ用カード表示 -->
+<div class="env-cards">
+  <div class="env-card">
+    <h3>a｜屋外（球場・外周など）</h3>
+    <p><strong>主目的：</strong> 呼吸と出力の連動／滑走感覚の再構築</p>
+    <p><strong>メイン内容：</strong> 前傾テンポ走・ペース走・流し走</p>
+    <button onclick="openModal('a')">詳細</button>
+  </div>
+
+  <div class="env-card">
+    <h3>b｜屋内（20m前後）</h3>
+    <p><strong>主目的：</strong> 短距離反応と姿勢制御</p>
+    <p><strong>メイン内容：</strong> 反応スプリント・MBスロー・スプリットポジションプレス</p>
+    <button onclick="openModal('b')">詳細</button>
+  </div>
+
+  <div class="env-card">
+    <h3>c｜電動式トレッドミル</h3>
+    <p><strong>主目的：</strong> 呼吸テンポと出力維持</p>
+    <p><strong>メイン内容：</strong> テンポ走・変速走・ブリージングウォーク</p>
+    <button onclick="openModal('c-modal')">詳細</button>
+  </div>
+
+  <div class="env-card">
+    <h3>d｜自走式トレッドミル</h3>
+    <p><strong>主目的：</strong> 地面反力と骨盤主導の加速</p>
+    <p><strong>メイン内容：</strong> 15秒スプリント・30秒テンポ走・インターバル走</p>
+    <button onclick="openModal('d')">詳細</button>
+  </div>
+
+  <div class="env-card">
+    <h3>e｜屋内サーキット</h3>
+    <p><strong>主目的：</strong> 全身連動とねじれ制御</p>
+    <p><strong>メイン内容：</strong> 呼吸系・出力系・回旋系サーキット</p>
+    <button onclick="openModal('e')">詳細</button>
+  </div>
+</div>
+    
     <tr><th>パターン</th><th>環境</th><th>主目的</th><th>メイン内容</th></tr>
     <tr>
       <td>a</td>
