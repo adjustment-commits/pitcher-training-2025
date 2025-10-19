@@ -17,6 +17,47 @@
   .btn-back{display:block;text-align:center;margin-top:60px;}
   .btn-back a{background:#22c55e;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;}
   .btn-back a:hover{background:#15803d;}
+
+  /* -----------------------------------
+   レスポンシブ・可読性強化（三宅）
+----------------------------------- */
+body {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table {
+  display: block;
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+th, td {
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding: 20px 14px 60px;
+    font-size: 0.95rem;
+  }
+  h1 {
+    font-size: 1.4rem;
+  }
+  th, td {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+  table {
+    font-size: 0.85rem;
+  }
+  footer {
+    font-size: 0.8rem;
+  }
+}
+  
 </style>
 </head>
 <body>
