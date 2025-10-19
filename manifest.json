@@ -22,6 +22,12 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    }
+    },
+      {
+    "src": "images/banner-1920x500.png",
+    "sizes": "1920x500",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }
   ]
 }
