@@ -269,6 +269,64 @@ if ('serviceWorker' in navigator) {
 <p><strong>誤り例：</strong> 胸で呼吸する・歩幅が大きすぎる・腕でバランスを取る。</p>
 </div></div>
 
+<!-- ==================== D：自走式トレッドミル ==================== -->
+<div id="d" class="modal"><div class="modal-content">
+  <span class="close" onclick="closeModal('d')">&times;</span>
+  <h3>d｜自走式トレッドミル</h3>
+  <p><strong>目的：</strong> 自走負荷による全身出力と心拍制御の強化。  
+     「フォームを整える」ではなく「出力を維持する」ためのセッション。</p>
+  <p><strong>メニュー構成：</strong><br>
+     ・15秒スプリント <button onclick="openModal('d-sprint')">解説</button><br>
+     ・30秒テンポ走 <button onclick="openModal('d-tempo')">解説</button><br>
+     ・インターバル走 <button onclick="openModal('d-interval')">解説</button>
+  </p>
+  <p><strong>推奨強度：</strong> RPE8〜9／HR160〜175／総時間25〜30分</p>
+  <p><strong>誤り例：</strong> 惰性でベルトを回す・呼吸を止める・上体で押す。</p>
+</div></div>
+
+<!-- -------- 15秒スプリント -------- -->
+<div id="d-sprint" class="modal"><div class="modal-content">
+  <span class="close" onclick="closeModal('d-sprint')">&times;</span>
+  <h3>d-1｜15秒スプリント</h3>
+  <p><strong>目的：</strong> 最大出力の立ち上がりと心拍反応のピーク把握。</p>
+  <p><strong>方法：</strong><br>
+  1. 自走式トレッドミルを0傾斜に設定。<br>
+  2. 15秒間、全力でベルトを動かす。<br>
+  3. 終了直後にレールへ逃げて完全停止。<br>
+  4. トレッドミルから降り、30〜45秒間は地面で歩行しながら呼吸リカバリー。<br>
+  5. 吸2拍・吐2拍を維持し、心拍が120〜130bpmに下がったら再セット。</p>
+  <p><strong>強度：</strong> 15秒×8〜10set／RPE9／HRmax170〜180。</p>
+  <p><strong>誤り例：</strong> 惰性でベルトを回す・出力を抜く・上体で押す。</p>
+</div></div>
+
+<!-- -------- 30秒テンポ走 -------- -->
+<div id="d-tempo" class="modal"><div class="modal-content">
+  <span class="close" onclick="closeModal('d-tempo')">&times;</span>
+  <h3>d-2｜30秒テンポ走</h3>
+  <p><strong>目的：</strong> 出力を抑えて“持続的な推進リズム”を維持する能力の強化。</p>
+  <p><strong>方法：</strong><br>
+  1. 30秒間、全力の80％テンポでベルトを回す。<br>
+  2. 呼吸リズム（吸2拍→吐2拍）を維持。<br>
+  3. 終了後はレール退避→降りて地面で60秒歩行しながら呼吸リカバリー。<br>
+  4. 呼吸を乱さず、次のセットに備える。</p>
+  <p><strong>強度：</strong> 30秒×6set／RPE7〜8／HR155〜165。</p>
+  <p><strong>誤り例：</strong> 惰性リカバリー・姿勢硬直・呼吸を止める。</p>
+</div></div>
+
+<!-- -------- インターバル走 -------- -->
+<div id="d-interval" class="modal"><div class="modal-content">
+  <span class="close" onclick="closeModal('d-interval')">&times;</span>
+  <h3>d-3｜インターバル走</h3>
+  <p><strong>目的：</strong> 疲労下での出力リズム維持と心拍回復Δの改善。</p>
+  <p><strong>方法：</strong><br>
+  1. 20秒全力走→40秒呼吸リカバリー（地面で歩行）。<br>
+  2. ベルト停止後は必ずレールに逃げ、降りて歩行。<br>
+  3. 心拍が160〜170で安定するようにテンポを保つ。<br>
+  4. 呼吸テンポ（吸2拍：吐2拍）を全セット通して崩さない。</p>
+  <p><strong>強度：</strong> 20秒＋40秒×10set／RPE8／HR160〜175。</p>
+  <p><strong>誤り例：</strong> 惰性でベルトを動かす・呼吸を止める・姿勢を意識しすぎて出力を下げる。</p>
+</div></div>
+
 <!-- ==================== E：屋内サーキット ==================== -->
 <div id="e" class="modal"><div class="modal-content">
 <span class="close" onclick="closeModal('e')">&times;</span>
