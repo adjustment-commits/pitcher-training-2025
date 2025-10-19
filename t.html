@@ -56,7 +56,17 @@
 </style>
 </head>
 <body>
-
+ 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const password = prompt("パスワードを入力してください：");
+  if (password !== "19yt") {
+    alert("パスワードが違います。");
+    window.location.href = "index.html"; // トップページなどにリダイレクト
+  }
+});
+</script>
+ 
 <header>
   <!-- 修正：表記ミスのみ -->
   <h1>Y. TATSUMURA</h1>
