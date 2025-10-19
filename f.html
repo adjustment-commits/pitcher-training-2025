@@ -53,7 +53,17 @@ th, td {
 </style>
 </head>
 <body>
-
+ 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const password = prompt("パスワードを入力してください：");
+  if (password !== "14rf") {
+    alert("パスワードが違います。");
+    window.location.href = "index.html"; // トップページなどにリダイレクト
+  }
+});
+</script>
+ 
 <header>
   <h1>R. FUJIWARA</h1>
 </header>
