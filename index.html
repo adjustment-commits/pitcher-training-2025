@@ -12,6 +12,8 @@
   table{width:100%;border-collapse:collapse;background:#111827;margin-top:15px;}
   th,td{border:1px solid #1f2937;padding:10px;text-align:center;}
   th{background:#1e3a8a;color:#f1f5f9;}
+  button{background:#2563eb;color:#fff;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:0.9rem;}
+  button:hover{background:#1d4ed8;}
   .player-links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px;}
   .player-links a{display:inline-block;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:bold;}
   .k{background:#3b82f6;} .k:hover{background:#2563eb;}
@@ -20,6 +22,13 @@
   .f{background:#facc15;color:#000;} .f:hover{background:#eab308;}
   section{margin-top:25px;}
   footer{text-align:center;margin-top:60px;color:#9ca3af;}
+  /* --- モーダル --- */
+  .modal{display:none;position:fixed;z-index:50;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgba(0,0,0,0.7);}
+  .modal-content{background:#111827;margin:10% auto;padding:20px;border:1px solid #374151;width:90%;max-width:500px;border-radius:10px;}
+  .close{color:#93c5fd;float:right;font-size:24px;font-weight:bold;cursor:pointer;}
+  .close:hover{color:#3b82f6;}
+  .modal h3{color:#60a5fa;margin-top:0;}
+  .modal p{line-height:1.7;}
 </style>
 </head>
 <body>
@@ -31,7 +40,7 @@
 
 <section id="summary">
   <h2>チーム全体の傾向</h2>
-  <p>4投手の平均として基礎的な走力と出力は中水準。<br>
+  <p>平均として基礎的な走力と出力は中水準。<br>
      全体的に“中強度でまとめる傾向”があり、<strong>瞬発局面での呼吸と出力の同期</strong>に課題が見られる。<br>
      この冬は、<strong>呼吸で動きを導く</strong>ことと、<strong>骨盤を主導にした出力連鎖</strong>の再教育が優先。</p>
 </section>
@@ -44,25 +53,25 @@
       <td>WEEK1</td>
       <td>呼吸と出力の同期</td>
       <td>呼吸リズムの再教育</td>
-      <td>LSD走・MB基礎スロー・テンポラン</td>
+      <td>LSD走・MB基礎スロー・テンポラン <button onclick="openModal('w1')">詳細</button></td>
     </tr>
     <tr>
       <td>WEEK2</td>
       <td>骨盤主導の加速</td>
       <td>初速と反応速度の強化</td>
-      <td>坂道ダッシュ・自走式TM・MB回旋</td>
+      <td>坂道ダッシュ・自走式TM・MB回旋 <button onclick="openModal('w2')">詳細</button></td>
     </tr>
     <tr>
       <td>WEEK3</td>
       <td>滑走と持久</td>
       <td>酸素利用効率と動作持久力</td>
-      <td>クーパー走変法・MB連続スロー</td>
+      <td>クーパー走変法・MB連続スロー <button onclick="openModal('w3')">詳細</button></td>
     </tr>
     <tr>
       <td>WEEK4</td>
       <td>調整と統合</td>
       <td>出力・呼吸・反応の統合</td>
-      <td>トレッドミル短距離＋ペアMBスロー</td>
+      <td>トレッドミル短距離＋ペアMBスロー <button onclick="openModal('w4')">詳細</button></td>
     </tr>
   </table>
 </section>
@@ -82,14 +91,60 @@
   <h2>実施メモ</h2>
   <p>・各セッションは「ウォームアップ→メイン→クールダウン」の流れで統一。<br>
      ・共通メニューのあとに個別補強を20〜30分実施。<br>
-     ・トレッドミルは電動式＝フォーム確認、自走式＝出力評価として使い分ける。（使用環境による）<br>
-     ・疲労指標は心拍・主観RPE・呼吸回数などでモニタリングできれば理想。<br>
+     ・トレッドミルは電動式＝フォーム確認、自走式＝出力評価として使い分ける。<br>
+     ・疲労指標は心拍・主観RPE・呼吸回数でモニタリング。<br>
      ・目的は“限界で頑張る”ではなく、“力を通す準備を整える”。</p>
 </section>
 
 <footer>
   <p>© 2025 adjustment-lab | Design & Concept by H. Nishimoto</p>
 </footer>
+
+<!-- ===== モーダル群 ===== -->
+<div id="w1" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('w1')">&times;</span>
+<h3>WEEK1｜呼吸と出力の同期</h3>
+<p><strong>目的：</strong> 呼吸リズムを整え、身体全体で力を通す準備を作る。</p>
+<p><strong>フォーム：</strong> LSD走では「吸って→吐いて」のリズムを一定に、MBスローでは骨盤→胸→腕の順。</p>
+<p><strong>強度：</strong> LSD走3〜4km（70%HRmax）、MBスロー3kg×10回×3set。</p>
+<p><strong>誤り例：</strong> 呼吸を止める・上体が先行する。</p>
+</div></div>
+
+<div id="w2" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('w2')">&times;</span>
+<h3>WEEK2｜骨盤主導の加速</h3>
+<p><strong>目的：</strong> 骨盤を動作の起点とし、初速を引き出す。</p>
+<p><strong>フォーム：</strong> 坂道では後脚の股関節で押す、自走式TMでは重心を前へ流す。</p>
+<p><strong>強度：</strong> 20m×8本／TM15秒×8／MB回旋6回×2set。</p>
+<p><strong>誤り例：</strong> 腕で走る・腰が遅れる。</p>
+</div></div>
+
+<div id="w3" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('w3')">&times;</span>
+<h3>WEEK3｜滑走と持久</h3>
+<p><strong>目的：</strong> 有酸素能力を高め、力の“抜け”を防ぐ。</p>
+<p><strong>フォーム：</strong> クーパー走変法ではリズムを守り、MB連続スローは体幹のテンポで投げる。</p>
+<p><strong>強度：</strong> クーパー走2000〜2600m目標／MB3kg×12回×3set。</p>
+<p><strong>誤り例：</strong> ペースを上げすぎる／息が乱れる。</p>
+</div></div>
+
+<div id="w4" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('w4')">&times;</span>
+<h3>WEEK4｜調整と統合</h3>
+<p><strong>目的：</strong> 呼吸・出力・反応を統合して動きを完成させる。</p>
+<p><strong>フォーム：</strong> TM短距離では反応速度、ペアMBでは連動と呼吸の共有を重視。</p>
+<p><strong>強度：</strong> TM10秒×6〜8本／ペアMB×10回×2set。</p>
+<p><strong>誤り例：</strong> 呼吸が浅い・相手とのリズムが合わない。</p>
+</div></div>
+
+<script>
+function openModal(id){document.getElementById(id).style.display='block';}
+function closeModal(id){document.getElementById(id).style.display='none';}
+window.onclick=function(e){
+  const modals=document.getElementsByClassName('modal');
+  for(let m of modals){if(e.target==m){m.style.display='none';}}
+}
+</script>
 
 </body>
 </html>
