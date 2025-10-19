@@ -61,7 +61,17 @@ th, td {
 </style>
 </head>
 <body>
-
+ 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const password = prompt("パスワードを入力してください：");
+  if (password !== "0ym") {
+    alert("パスワードが違います。");
+    window.location.href = "index.html"; // トップページなどにリダイレクト
+  }
+});
+</script>
+ 
 <header>
   <h1>Y.MIYAKE</h1>
 </header>
