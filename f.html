@@ -224,15 +224,13 @@ function toggleFeedback() {
   const detail = document.getElementById("feedback-detail");
   const hint = document.querySelector(".feedback-summary .hint");
 
-  // すでに開いている場合 → 閉じる
-  if (detail.classList.contains("show")) {
-    detail.classList.remove("show");
-    if (hint) hint.style.display = "block";
-  } 
-  // 閉じている場合 → 開く
-  else {
-    detail.classList.add("show");
-    if (hint) hint.style.display = "none";
+  const showing = detail.classList.toggle("show");
+
+  // 表示・非表示の状態に応じてヒント文を切り替える
+  if (showing) {
+    hint.textContent = "（タップして詳細を閉じる）";
+  } else {
+    hint.textContent = "（タップして詳細を表示）";
   }
 }
 </script>
