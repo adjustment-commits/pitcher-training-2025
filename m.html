@@ -63,7 +63,9 @@
   transition:background 0.3s;
   -webkit-tap-highlight-color:transparent;
 }
-.feedback-summary:hover{background:#14532d;}
+  .feedback-summary:hover {
+  background: #1e5a38; /* わずかに明るくして視認性UP */
+}
 .feedback-summary .catch{
   font-size:1.1rem;
   color:#4ade80;
@@ -245,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function(){
   const password = prompt("パスワードを入力してください：");
   if (!password || password !== "0ym") {
     alert("パスワードが違います。");
-    window.location.href = "index.html";
+    window.location.replace = "index.html";
   }
 });
 </script>
