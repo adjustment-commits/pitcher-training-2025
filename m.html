@@ -85,20 +85,33 @@
   display:block;
   opacity:1;
 }
+.data-card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-top: 15px;
+}
+
+.data-card p {
+  margin: 8px 0;
+  border-bottom: 1px solid #1f2937;
+  padding-bottom: 6px;
+}
+
+.data-card p:last-child {
+  border-bottom: none;
+}
+
+@media screen and (max-width: 768px) {
+  .data-card {
+    padding: 14px 16px;
+    font-size: 0.9rem;
+  }
+}
 </style>
 </head>
 <body>
-
-<script>
-/* パスワード保護 */
-document.addEventListener("DOMContentLoaded", function(){
-  const password = prompt("パスワードを入力してください：");
-  if (!password || password !== "0ym") {
-    alert("パスワードが違います。");
-    window.location.href = "index.html";
-  }
-});
-</script>
 
 <header>
   <h1>Y. MIYAKE</h1>
@@ -106,10 +119,18 @@ document.addEventListener("DOMContentLoaded", function(){
 
 <section id="data">
   <h2>測定結果</h2>
-  <table>
-    <tr><th>クーパー走</th><th>MB(back)</th><th>右回旋</th><th>左回旋</th><th>30mスプリント</th></tr>
-    <tr><td>2750 m</td><td>19.8 m</td><td>16.2 m</td><td>14.3 m</td><td>4.10 s</td></tr>
-  </table>
+
+  <div class="data-card">
+    <p><strong>クーパー走：</strong>2750 m</p>
+    <p><strong>MB(back)：</strong>19.8 m</p>
+    <p><strong>MB(front)：</strong>18.1 m</p>
+    <p><strong>MB(up)：</strong>2.75 sec</p>
+    <p><strong>右回旋：</strong>16.2 m</p>
+    <p><strong>左回旋：</strong>14.3 m</p>
+    <p><strong>30mスプリント：</strong>3.97 s</p>
+    <p><strong>20mスプリント：</strong>1.41 s</p>
+    <p><strong>10mスプリント：</strong>2.72 s</p>
+  </div>
 </section>
 
 <section id="feedback">
@@ -161,40 +182,40 @@ document.addEventListener("DOMContentLoaded", function(){
 <section id="menu">
   <h2>個別トレーニングメニュー</h2>
 
-  <h3>① 反応スプリント（リアクションタイマー使用）</h3>
-  <p><strong>目的：</strong> スタート反応速度（RFD）の強化。<br>
-     <strong>方法：</strong> 光や音の合図で即発進。<br>
-     <strong>キュー：</strong> 「考える前に動け」。<br>
-     <strong>強度：</strong> 4本×3セット／休息75秒。</p>
+  <h3>① 反応スプリント</h3>
+  <p><strong>目的：</strong><br> スタート反応速度（RFD）の強化。<br><br>
+     <strong>方法：</strong><br> 光や音の合図で即発進。<br><br>
+     <strong>キュー：</strong><br> 「考える前に動け」。<br><br>
+     <strong>強度：</strong><br> 4本×3セット／休息75秒。</p><br>
 
   <h3>② MBリバーススラム</h3>
-  <p><strong>目的：</strong> 全身の反射的出力強化。<br>
-     <strong>フォーム：</strong> MBを頭上→背面方向に叩きつける。胸を開いてから一気に閉じる。<br>
-     <strong>キュー：</strong> 「切り返しで叩き落とせ」。<br>
-     <strong>強度：</strong> 6回×3セット／休息90秒。</p>
+  <p><strong>目的：</strong><br> 全身の反射的出力強化。<br><br>
+     <strong>フォーム：</strong><br> MBを頭上→背面方向に叩きつける。<br>胸を開いてから一気に閉じる。<br><br>
+     <strong>キュー：</strong><br> 「切り返しで叩き落とせ」。<br><br>
+     <strong>強度：</strong><br> 6回×3セット／休息90秒。</p><br>
 
-  <h3>③ TRXジャンプ＋スティックランディング</h3>
-  <p><strong>目的：</strong> 離地と接地の制御能力向上。<br>
-     <strong>フォーム：</strong> TRXで補助し、両脚ジャンプ→音を立てずに静止。<br>
-     <strong>キュー：</strong> 「音を出さずに着地」。<br>
-     <strong>強度：</strong> 8回×2セット。</p>
+  <h3>③ BOXジャンプスティックランディング</h3>
+  <p><strong>目的：</strong><br> 離地と接地の制御能力向上。<br><br>
+     <strong>フォーム：</strong><br> 両脚ジャンプ→音を立てずに静止。<br><br>
+     <strong>キュー：</strong><br> 「音を出さずに着地」。<br><br>
+     <strong>強度：</strong><br> 8回×2セット。</p><br>
 
-  <h3>④ 自走式トレッドミル15秒×8</h3>
-  <p><strong>目的：</strong> 有酸素下での瞬発維持。<br>
-     <strong>設定：</strong> 95〜100% effort／休息75秒。<br>
-     <strong>キュー：</strong> 「ピッチよりも、重心を前へ」。</p>
-
+  <h3>④ トレッドミル15秒×8</h3>
+  <p><strong>目的：</strong><br> 有酸素下での瞬発維持。<br><br>
+     <strong>設定：</strong><br> 95〜100% effort／休息75秒。<br><br>
+     <strong>キュー：</strong><br> 「ピッチよりも、重心を前へ」。</p>
+<br>
   <h3>⑤ ストレッチ＋ブリージング</h3>
-  <p><strong>目的：</strong> 疲労回復・自律神経リセット。<br>
-     <strong>方法：</strong> 開脚前屈＋横隔膜リリース。<br>
-     <strong>キュー：</strong> 「深く吸って、体の奥まで吐く」。</p>
+  <p><strong>目的：</strong><br> 疲労回復・自律神経リセット。<br><br>
+     <strong>方法：</strong><br> 開脚前屈＋横隔膜リリース。<br><br>
+     <strong>キュー：</strong><br> 「深く吸って、体の奥まで吐く」。</p><br>
 </section>
 
 <section id="coach-note">
   <h2>メモ</h2>
   <p>・スプリントとMBスローで“切り替え速度”を最優先指標に。<br>
      ・出力開始の遅れをチェック。<br>
-     ・三宅の強みはフィジカルの安定。そこに“鋭さ”を足せば完成。<br>
+     ・強みはフィジカルの安定、そこに“鋭さ”を足せば完成。<br>
      ・タイミングを詰めず、感じて先に動く。</p>
 </section>
 
@@ -212,8 +233,19 @@ function toggleFeedback(){
 }
 </script>
 
+<script>
+/* パスワード保護 */
+document.addEventListener("DOMContentLoaded", function(){
+  const password = prompt("パスワードを入力してください：");
+  if (!password || password !== "0ym") {
+    alert("パスワードが違います。");
+    window.location.href = "index.html";
+  }
+});
+</script>
+
 <footer>
-  <p>© 2025 adjustment-lab | Design & Concept by H. Nishimoto</p>
+  <p>© 2025 adjustment-lab |<br> Design & Concept by H. Nishimoto</p>
 </footer>
 
 </body>
