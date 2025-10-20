@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FKK投手トレーニング2025オフシーズン</title>
+
 <!-- ✅ PWA対応設定 -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0d1117">
@@ -20,9 +24,7 @@ if ('serviceWorker' in navigator) {
   });
 }
 </script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FKK投手トレーニング2025オフシーズン</title>
+
 <style>
   body {
     background: #0d1117;
@@ -373,7 +375,7 @@ if ('serviceWorker' in navigator) {
 
 <section id="program">
   <h2>環境別プログラム（a〜e）</h2>
-  <table>
+  
     <!-- スマホ用カード表示 -->
 <div class="env-cards">
   <div class="env-card">
@@ -411,7 +413,8 @@ if ('serviceWorker' in navigator) {
     <button onclick="openModal('e')">詳細</button>
   </div>
 </div>
-    
+  
+    <table>
     <tr><th>パターン</th><th>環境</th><th>主目的</th><th>メイン内容</th></tr>
     <tr>
       <td>a</td>
@@ -445,18 +448,13 @@ if ('serviceWorker' in navigator) {
     </tr>
   </table>
 
-  <p style="margin-top:10px; color:#9ca3af; line-height:1.8;">
-  本プログラムは、各環境（a〜e）で<strong>同等の生理的・動作的効果</strong>が得られるように設計されています。<br>
-  選手は天候・施設環境に応じて任意のパターンを選択しても、トレーニング効果の偏りが生じない構成となっています。<br><br>
-  ただし環境特性に応じた優先度は以下の通りです。<br>
-  ① 屋外（a）｜呼吸と滑走リズムを自然に再教育でき、空間の中で動作感覚を統合できる。<br>
-  ② 自走式トレッドミル（d）｜骨盤主導と地面反力の再現性が高く、出力制御力を育てる。<br>
-  ③ 屋内（b）｜短距離反応と姿勢制御に優れる。<br>
-  ④ 電動トレッドミル（c）｜呼吸テンポ教育とフォーム維持に適す。<br>
-  ⑤ サーキット（e）｜出力よりも呼吸・分離・ねじれ制御の教育に特化。<br><br>
-  どの環境を選択しても、<strong>「呼吸 × 出力 × 流れ」</strong>の基礎原理は一貫して再現されます。<br>
-  ※RPE（自覚的運動強度）は自分が感じる運動強度です。
-  </p>
+<p style="margin-top:10px; color:#9ca3af; line-height:1.8;">
+※RPE（自覚的運動強度）は自身の体感を基準に設定。<br>
+どの環境（a〜e）でも<strong>同等の生理・動作効果</strong>を得られるよう設計されています。<br>
+天候や施設条件に応じて自由に選択しても、効果の偏りはありません。<br><br>
+推奨順位：① 屋外（a）／② 自走式TM（d）／③ 屋内（b）／④ 電動TM（c）／⑤ サーキット（e）<br><br>
+どの環境でも、<strong>「呼吸 × 出力 × 流れ」</strong>の原理は共通です。
+</p>
 </section>
 
 <section id="players">
@@ -909,7 +907,8 @@ if ('serviceWorker' in navigator) {
 
 <!-- ==================== フッター・スクリプト ==================== -->
 <footer>
-  <p>© 2025 adjustment-lab | Design & Concept by H. Nishimoto</p>
+  <pre>© 2025 adjustment-lab |<br>
+                     Design & Concept by H. Nishimoto</pre>
 </footer>
 
 <script>
@@ -919,6 +918,11 @@ window.onclick=function(e){
   const modals=document.getElementsByClassName('modal');
   for(let m of modals){if(e.target==m){m.style.display='none';}}
 }
+
+window.addEventListener('touchstart', function(e){
+  const modals = document.getElementsByClassName('modal');
+  for(let m of modals){ if(e.target === m){ m.style.display='none'; } }
+});
 </script>
 
 </body>
