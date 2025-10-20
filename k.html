@@ -139,20 +139,22 @@ th, td {
   display: none;
   margin-top: 20px;
 }
+
+.feedback-detail {
+  display: none;
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+.feedback-detail.show {
+  display: block;
+  opacity: 1;
+}
+  
 </style>
   
 </head>
 <body>
-  
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const password = prompt("パスワードを入力してください：");
-  if (password !== "12yk") {
-    alert("パスワードが違います。");
-    window.location.href = "index.html"; // トップページなどにリダイレクト
-  }
-});
-</script>
   
 <header>
   <h1>Y. KURODA</h1>
@@ -255,12 +257,25 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 
 <script>
+
 function toggleFeedback() {
   const detail = document.getElementById("feedback-detail");
-  detail.style.display = (detail.style.display === "block") ? "none" : "block";
+  const hint = document.querySelector(".feedback-summary .hint");
+  const showing = detail.classList.toggle("show");
+  hint.style.display = showing ? "none" : "block";
 }
 </script>
 
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const password = prompt("パスワードを入力してください：");
+ if (!password || password !== "12yk") {
+  alert("パスワードが違います。");
+  window.location.href = "index.html";
+}
+});
+</script>
+  
 <footer>
   <p>© 2025 adjustment-lab | Design & Concept by H. Nishimoto</p>
 </footer>
