@@ -146,23 +146,23 @@
   <div id="feedback-detail" class="feedback-detail">
  <h3>良い特徴</h3>
 <p>
-・体格と筋出力に優れ、球速150kmに到達できる物理的条件を持っている。<br>
-・金獅子大会の投球は下肢から骨盤への力伝達が滑らかで、リリース直前の加速感は高い。<br>
-・フォーム全体の推進ベクトルが前方向に整い始めており、ボールに差し込む力がある。<br>
-・強度の高いトレーニングにも耐え、身体的ポテンシャルは社会人レベルでも上位。<br>
+・筋出力に優れ、球速150kmに到達し得る身体的条件を持っている。<br><br>
+・金獅子大会の投球は下肢から骨盤への力伝達が滑らかで、リリース直前の加速感は高い。<br><br>
+・フォーム全体の推進ベクトルが前方向に整い始めており、ボールに差し込む力がある。<br><br>
+・強度の高いトレーニングにも耐え、身体的ポテンシャルは社会人レベルでも上位。<br><br>
 ・一度感覚を掴むと再現性の高さ、フォーム修正能力も持っているはず。
-</p>
+</p><br>
 
 <h3>課題</h3>
 <p>
-出力と制御のリズムが合っておらず、タイミングのズレが球威低下につながっている。<br>
-力の使い方が「押し込み型」に偏り、骨盤と胸郭の動きが同期しない。<br>
-呼吸が止まりやすく、上半身で力を作る場面が多い。<br>
-動作中に“抜く”感覚を身につけることで、滑走的な球速向上が見込める。<br>
-またこだわりが強く感覚の修正に鈍感傾向がある。<br>
-自分の感覚を信じつつも、身体の仕組みに従う冷静さを持つべき時期に来ている。<br>
-客観的データをもとに「再現性」を数値で捉えることが必要。
-</p>
+・出力と制御のリズムが合っておらず、タイミングのズレが球威低下につながっている。<br><br>
+・力の使い方が「押し込み型」に偏り、骨盤と胸郭の動きが同期しない。<br><br>
+・呼吸が止まりやすく、上半身で力を作る場面が多い。<br><br>
+・動作中に“抜く”感覚を身につけることで、滑走的な球速向上が見込める。<br><br>
+・またこだわりが少々強く感覚の修正に鈍化傾向がある。<br><br>
+・自分の感覚を信じつつも、身体の仕組みに従う冷静さを持つべき時期に来ている。<br><br>
+・客観的データをもとに「再現性」を数値で捉えることが必要。
+</p><br>
 
   <h3>心拍傾向</h3>
 <p>
@@ -224,12 +224,20 @@
 </div>
 
 <script>
-/* タップで詳細開閉 */
-function toggleFeedback(){
+function toggleFeedback() {
   const detail = document.getElementById("feedback-detail");
   const hint = document.querySelector(".feedback-summary .hint");
-  const showing = detail.classList.toggle("show");
-  if (hint) hint.style.display = showing ? "none" : "block";
+
+  // すでに開いている場合 → 閉じる
+  if (detail.classList.contains("show")) {
+    detail.classList.remove("show");
+    if (hint) hint.style.display = "block";
+  } 
+  // 閉じている場合 → 開く
+  else {
+    detail.classList.add("show");
+    if (hint) hint.style.display = "none";
+  }
 }
 </script>
 
@@ -245,7 +253,8 @@ document.addEventListener("DOMContentLoaded", function(){
 </script>
 
 <footer>
-  <p>© 2025 adjustment-lab |<br> Design & Concept by H. Nishimoto</p>
+  <p>© 2025 adjustment-lab |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Design & Concept by H. Nishimoto</p>
 </footer>
 
 </body>
