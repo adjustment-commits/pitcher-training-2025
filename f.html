@@ -125,9 +125,9 @@
     <p><strong>MB(up)：</strong>2.54 sec</p>
     <p><strong>右回旋：</strong>13.1 m</p>
     <p><strong>左回旋：</strong>13.1 m</p>
-    <p><strong>30mスプリント：</strong4.17 s</p>
-    <p><strong>20mスプリント：</strong2.86 s</p>
-    <p><strong>10mスプリント：</strong1.53 s</p>
+    <p><strong>30mスプリント：</strong>4.17 s</p>
+    <p><strong>20mスプリント：</strong>2.86 s</p>
+    <p><strong>10mスプリント：</strong>1.53 s</p>
   </div>
 </section>
 
@@ -144,23 +144,23 @@
   <div id="feedback-detail" class="feedback-detail">
   <h3>良い特徴</h3>
   <p>
-  ・出力の瞬発性と反応スピードが高く体を“動かす”ことに関しての感覚は非常に鋭い。<br>
-  ・骨盤の滑り出しや脚の切り返しが自然で、リズムセンスに恵まれている。<br>
-  ・一度スイッチが入ると、誰よりも集中して爆発できるタイプ。<br>
-  ・ただし、出力が波のように大きい分、制御を失うと一気に乱れる。<br>
-  ・勢いだけで勝負できる段階は過ぎた。<br>
+  ・出力の瞬発性と反応スピードが高く体を“動かす”ことに関しての感覚は非常に鋭い。<br><br>
+  ・骨盤の滑り出しや脚の切り返しが自然で、リズムセンスに恵まれている。<br><br>
+  ・一度スイッチが入ると、誰よりも集中して爆発できるタイプ。<br><br>
+  ・ただし、出力が波のように大きい分、制御を失うと一気に乱れる。<br><br>
+  ・勢いだけで勝負できる段階は過ぎた。<br><br>
   ・“波を起こす”だけでなく、“波を操る”ことを覚えるべき段階に来ている。
-  </p>
+  </p><br>
 
   <h3>課題</h3>
   <p>
-  ・動きの“切り替え”が感覚任せで、再現性が低い。<br>
-  ・呼吸が浅く、パワーの波が途切れるため、1球ごとに質のムラが大きい。<br>
-  ・「速く動く」意識が強すぎて、力が前で途切れている。<br>
-  ・力を“出す”よりも“通す”。それができなければ、今後どれだけ筋力がついても限界がくる。<br>
-  ・まずは呼吸でリズムを刻み、動きを滑らかに繋げる感覚を身につけたい。<br>  
+  ・動きの“切り替え”が感覚任せで再現性が低い。<br><br>
+  ・呼吸が浅くパワーの波が途切れるため、1球ごとに質のムラが大きい。<br><br>
+  ・「速く動く」意識が強すぎて力が前で途切れている。<br><br>
+  ・力を“出す”よりも“通す”それができなければ、今後どれだけ筋力がついても限界がくる。<br><br>
+  ・まずは呼吸でリズムを刻み、動きを滑らかに繋げる感覚を身につけたい。<br><br>  
   ・強さではなく流れ——それが今最も求められる要素だ。
-  </p>
+  </p><br>
 
   <h3>心拍傾向</h3>
   <p>
@@ -168,7 +168,7 @@
   → 出力時に心拍が暴走し、回復時に落ちきらない“燃えすぎるタイプ”。<br>
   動きも呼吸も感情も全て“前のめり”で、制御が追いついていない。<br>
   高心拍を「追い込み」と思っているうちは、持久も反応も伸びない。<br>
-  呼吸テンポで心拍を“引き戻す”トレーニングが必要。<br>
+  呼吸テンポで心拍を引き戻すトレーニングが必要。<br>
   熱量を抑えるのではなく、熱を流す。<br>心拍をコントロールできるようになった瞬間、  
   動きは劇的に安定する。
   </p>
@@ -211,7 +211,7 @@
   <h2>メモ</h2>
   <p>・力の伝達よりも“流れ”を最優先にチェック。<br>
      ・出力の途切れを確認し、連続性を育てる。<br>
-     ・藤原の成長鍵は「滑らかさの中に強さを残す」こと。<br>
+     成長鍵は「滑らかさの中に強さを残す」こと。<br>
      ・速くなるより、美しく。美しさが速さを生む。</p>
 </section>
 
@@ -220,12 +220,20 @@
 </div>
 
 <script>
-/* タップで詳細開閉 */
-function toggleFeedback(){
+function toggleFeedback() {
   const detail = document.getElementById("feedback-detail");
   const hint = document.querySelector(".feedback-summary .hint");
-  const showing = detail.classList.toggle("show");
-  if (hint) hint.style.display = showing ? "none" : "block";
+
+  // すでに開いている場合 → 閉じる
+  if (detail.classList.contains("show")) {
+    detail.classList.remove("show");
+    if (hint) hint.style.display = "block";
+  } 
+  // 閉じている場合 → 開く
+  else {
+    detail.classList.add("show");
+    if (hint) hint.style.display = "none";
+  }
 }
 </script>
 
@@ -241,7 +249,8 @@ document.addEventListener("DOMContentLoaded", function(){
 </script>
 
 <footer>
-  <p>© 2025 adjustment-lab |<br> Design & Concept by H. Nishimoto</p>
+  <p>© 2025 adjustment-lab |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Design & Concept by H. Nishimoto</p>
 </footer>
 
 </body>
