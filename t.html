@@ -115,17 +115,6 @@
 </head>
 <body>
 
-<script>
-/* パスワード保護（キャンセル含め弾く） */
-document.addEventListener("DOMContentLoaded", function(){
-  const password = prompt("パスワードを入力してください：");
-  if (!password || password !== "19yt") {
-    alert("パスワードが違います。");
-    window.location.href = "index.html";
-  }
-});
-</script>
-
 <header>
   <h1>Y. TATSUMURA</h1>
 </header>
@@ -139,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function(){
     <p><strong>MB(up)：</strong>2.51 sec</p>
     <p><strong>右回旋：</strong>13.6 m</p>
     <p><strong>左回旋：</strong>14.2 m</p>
-    <p><strong>30mスプリント：</strong>4.30 s</p>
+    <p><strong>30mスプリント：</strong>4.17 s</p>
     <p><strong>20mスプリント：</strong>2.84 s</p>
     <p><strong>10mスプリント：</strong>1.52 s</p>
   </div>
@@ -231,6 +220,16 @@ function toggleFeedback(){
   if (hint) hint.style.display = showing ? "none" : "block";
 }
 </script>
+<script>
+/* パスワード保護（キャンセル含め弾く） */
+document.addEventListener("DOMContentLoaded", function(){
+  const password = prompt("パスワードを入力してください：");
+  if (!password || password !== "19yt") {
+    alert("パスワードが違います。");
+    window.location.href = "index.html";
+  }
+});
+</script>  
 
 <footer>
   <p>© 2025 adjustment-lab |<br> Design & Concept by H. Nishimoto</p>
