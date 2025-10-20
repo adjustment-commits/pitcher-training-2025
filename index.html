@@ -145,7 +145,6 @@ if ('serviceWorker' in navigator) {
 }
   
   /* ===== スマホ対応 ===== */
-  @media screen and (max-width: 768px) {
     body {
       padding: 20px 14px 60px;
       font-size: 0.95rem;
@@ -281,19 +280,13 @@ if ('serviceWorker' in navigator) {
       font-size: 0.9rem;
       line-height: 1.7;
     }
-
-    footer {
-      margin-top: 40px;
-      padding-bottom: 30px;
-      line-height: 1.6;
-    }
 }
 
 /* ===============================
    環境別プログラム：スマホ最適化カード表示
    =============================== */
 
-/* 常にカード表示に */
+/* ===== カード構成を全デバイス共通化 ===== */
 .env-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -301,15 +294,11 @@ if ('serviceWorker' in navigator) {
   margin-top: 20px;
 }
 
-/* 表は常に非表示に */
-#program table {
-  display: none !important;
-}
 .env-card {
   background: #111827;
   border: 1px solid #1f2937;
   border-radius: 10px;
-  padding: 16px;
+  padding: 20px 18px;
   box-shadow: 0 0 6px rgba(0,0,0,0.3);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -317,19 +306,25 @@ if ('serviceWorker' in navigator) {
   transform: translateY(-2px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
-  .env-card h3 {
-    color: #93c5fd;
-    margin-top: 0;
-  }
-  .env-card p {
-    margin: 6px 0;
-    line-height: 1.6;
-  }
+.env-card h3 {
+  color: #93c5fd;
+  margin-top: 0;
+}
+.env-card p {
+  margin: 6px 0;
+  line-height: 1.6;
+}
 .env-card button {
   display: block;
   width: 100%;
   margin-top: 10px;
 }
+
+/* ===== 表は常に非表示 ===== */
+#program table {
+  display: none !important;
+}
+
 
 </style>
   
@@ -371,7 +366,7 @@ if ('serviceWorker' in navigator) {
     <h3>c｜電動式トレッドミル</h3>
     <p><strong>主目的：</strong> 呼吸テンポと出力維持</p>
     <p><strong>メイン内容：</strong> テンポ走・変速走・ブリージングウォーク</p>
-    <button onclick="openModal('c-modal')">詳細</button>
+    <button onclick="openModal('c')">詳細</button>
   </div>
 
   <div class="env-card">
@@ -509,7 +504,7 @@ if ('serviceWorker' in navigator) {
 </div></div>
 
 <!-- ==================== C：電動トレッドミル ==================== -->
-<div id="c-modal" class="modal"><div class="modal-content">
+<div id="c" class="modal"><div class="modal-content">
 <span class="close" onclick="closeModal('c-modal')">&times;</span>
 <h3>c｜電動式トレッドミル</h3>
 <p><strong>目的：</strong> 一定リズムでの呼吸テンポを作り、フォームの再現性を高める。</p>
