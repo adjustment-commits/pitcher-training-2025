@@ -63,24 +63,6 @@ if ('serviceWorker' in navigator) {
     line-height: 1.8;
   }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #111827;
-    margin-top: 15px;
-    overflow-x: auto;
-    display: block;
-    border-radius: 8px;
-  }
-
-  th, td {
-    border: 1px solid #1f2937;
-    padding: 10px;
-    text-align: center;
-    font-size: 0.95rem;
-    white-space: nowrap;
-  }
-
   th {
     background: #1e3a8a;
     color: #f1f5f9;
@@ -157,6 +139,11 @@ if ('serviceWorker' in navigator) {
     font-size: 0.95rem;
   }
 
+/* PC共通 */
+.modal-content {
+  margin: 8% auto;
+}
+  
   /* ===== スマホ対応 ===== */
   @media screen and (max-width: 768px) {
     body {
@@ -188,12 +175,10 @@ if ('serviceWorker' in navigator) {
       font-size: 0.85rem;
     }
 
-    .modal-content {
-      width: 95%;
-      padding: 15px;
-      font-size: 0.9rem;
-    }
-
+/* スマホ専用 */
+  .modal-content {
+    margin: 18% auto; /* 中央寄せで見やすく */
+  }
     footer {
       font-size: 0.8rem;
     }
@@ -224,14 +209,6 @@ if ('serviceWorker' in navigator) {
   /* ==============================
      テーブル スクロール・整列補正
      ============================== */
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
 
   th, td {
     text-align: center;
@@ -310,30 +287,36 @@ if ('serviceWorker' in navigator) {
       padding-bottom: 30px;
       line-height: 1.6;
     }
+}
 
 /* ===============================
    環境別プログラム：スマホ最適化カード表示
    =============================== */
 
-/* カードを非表示（PC用は表を優先） */
-.env-cards { display: none; }
+/* 常にカード表示に */
+.env-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
 
-/* スマホではカードを表示してテーブル非表示 */
-@media screen and (max-width: 768px) {
-  #program table { display: none; }
-  .env-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 20px;
-  }
-  .env-card {
-    background: #111827;
-    border: 1px solid #1f2937;
-    border-radius: 10px;
-    padding: 16px;
-    box-shadow: 0 0 6px rgba(0,0,0,0.3);
-  }
+/* 表は常に非表示に */
+#program table {
+  display: none !important;
+}
+.env-card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.env-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
   .env-card h3 {
     color: #93c5fd;
     margin-top: 0;
@@ -342,18 +325,10 @@ if ('serviceWorker' in navigator) {
     margin: 6px 0;
     line-height: 1.6;
   }
-  .env-card button {
-    background: #2563eb;
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    cursor: pointer;
-  }
-  .env-card button:hover {
-    background: #1d4ed8;
-  }
+.env-card button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
 }
 
 </style>
@@ -413,40 +388,6 @@ if ('serviceWorker' in navigator) {
     <button onclick="openModal('e')">詳細</button>
   </div>
 </div>
-  
-    <table>
-    <tr><th>パターン</th><th>環境</th><th>主目的</th><th>メイン内容</th></tr>
-    <tr>
-      <td>a</td>
-      <td>屋外（球場・外周など）</td>
-      <td>呼吸と出力の連動／滑走感覚の再構築</td>
-      <td>前傾テンポ走・ペース走・流し走 <button onclick="openModal('a')">詳細</button></td>
-    </tr>
-    <tr>
-      <td>b</td>
-      <td>屋内（20m前後）</td>
-      <td>短距離反応と姿勢制御</td>
-      <td>反応スプリント・MBスロー・スプリットポジションプレス <button onclick="openModal('b')">詳細</button></td>
-    </tr>
-    <tr>
-      <td>c</td>
-      <td>電動式トレッドミル</td>
-      <td>呼吸テンポと出力維持</td>
-      <td>テンポ走・変速走・ブリージングウォーク <button onclick="openModal('c-modal')">詳細</button></td>
-    </tr>
-    <tr>
-      <td>d</td>
-      <td>自走式トレッドミル</td>
-      <td>地面反力と骨盤主導の加速</td>
-      <td>15秒スプリント・30秒テンポ走・インターバル走 <button onclick="openModal('d')">詳細</button></td>
-    </tr>
-    <tr>
-      <td>e</td>
-      <td>屋内サーキット（呼吸／出力／肋骨回旋）</td>
-      <td>全身連動とねじれ制御</td>
-      <td>呼吸系・出力系・回旋系サーキット <button onclick="openModal('e')">詳細</button></td>
-    </tr>
-  </table>
 
 <p style="margin-top:10px; color:#9ca3af; line-height:1.8;">
 ※RPE（自覚的運動強度）は自身の体感を基準に設定。<br>
@@ -521,7 +462,7 @@ if ('serviceWorker' in navigator) {
 <p><strong>目的：</strong> 限られた空間での反応速度と姿勢制御を鍛え、骨盤主導の出力を維持する。</p>
 <p><strong>メニュー構成：</strong><br>
 ・反応スプリント <button onclick="openModal('b-react')">解説</button><br>
-・メディシンボールスロー（MBスロー） <button onclick="openModal('b-mb')">解説</button><br>
+・メディシンボールスロー <button onclick="openModal('b-mb')">解説</button><br>
 ・スプリットポジションプレス <button onclick="openModal('b-form')">解説</button></p>
 <p><strong>推奨強度：</strong> RPE7〜8／HR155前後／60分程度。</p>
 <p><strong>誤り例：</strong> 初動で力む・姿勢が起きる・骨盤が遅れる。</p>
@@ -543,10 +484,10 @@ if ('serviceWorker' in navigator) {
 <!-- -------- MBスロー -------- -->
 <div id="b-mb" class="modal"><div class="modal-content">
 <span class="close" onclick="closeModal('b-mb')">&times;</span>
-<h3>b-2｜メディシンボールスロー（MBスロー）</h3>
+<h3>b-2｜メディシンボールスロー</h3>
 <p><strong>目的：</strong> 骨盤→胸郭→腕の出力連鎖を整え、呼吸と動作の一体化を作る。</p>
 <p><strong>方法：</strong><br>
-1. 3kgのメディシンボールを持ち、膝立ちまたは立位で胸の前に構える。<br>
+1. 3kgのMBを持ち、膝立ちまたは立位で胸の前に構える。<br>
 2. 吐く息に合わせて骨盤から回旋し、胸郭を遅らせて投げ出す。<br>
 3. 反対方向への戻り動作（吸気）で姿勢をリセットする。</p>
 <p><strong>強度：</strong> 各方向×10回×3set／RPE7。</p>
@@ -911,7 +852,7 @@ if ('serviceWorker' in navigator) {
 footer {
   text-align: center;
   margin-top: 60px;
-  color: #9ca3af;
+  color: #b0bec5;
   font-size: 0.85rem;
   line-height: 1.6;
   word-break: keep-all;
