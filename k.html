@@ -311,9 +311,10 @@ document.addEventListener("DOMContentLoaded", function() {
   const password = prompt("パスワードを入力してください：");
  if (!password || password !== "12yk") {
   alert("パスワードが違います。");
-  window.location.replace = "index.html";
-}
+window.location.replace("index.html");  
+  }
 });
+
 </script>
   
 <footer>
