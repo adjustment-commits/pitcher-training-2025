@@ -249,8 +249,26 @@ document.addEventListener("DOMContentLoaded", function(){
 </script>
 
 <footer>
-  <pre>© 2025 adjustment-lab |<br>Design & Concept by H. Nishimoto</pre>
+  <p class="footer-text">© 2025 adjustment-lab |<br>Design & Concept by H. Nishimoto</p>
 </footer>
+
+<style>
+footer {
+  text-align: center;
+  margin-top: 60px;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.footer-text {
+  display: inline-block;
+  text-align: center;
+  white-space: normal; /* スマホでの折返し許可 */
+  margin: 0 auto;
+}
+</style>
   
 </body>
 </html>
