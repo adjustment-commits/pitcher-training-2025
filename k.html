@@ -110,6 +110,37 @@ th, td {
   }
 }
 </style>
+
+<style>
+.feedback-summary {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.feedback-summary:hover {
+  background: #2a3b52;
+}
+.feedback-summary .catch {
+  font-size: 1.1rem;
+  color: #93c5fd;
+  font-weight: bold;
+  margin: 0;
+}
+.feedback-summary .hint {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+.feedback-detail {
+  display: none;
+  margin-top: 20px;
+}
+</style>
+  
 </head>
 <body>
   
@@ -137,6 +168,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <section id="feedback">
   <h2>フィードバック</h2>
+    <!-- 一言キャッチ（ここをタップで展開） -->
+  <div class="feedback-summary" onclick="toggleFeedback()">
+    <p class="catch">力を通す精度が、次のステージを決める。</p>
+    <p class="hint">(タップして詳細を表示)</p>
+  </div>
+
+    <!-- 詳細（初期は非表示） -->
+  <div id="feedback-detail" class="feedback-detail">
+  
 <h3>良い特徴</h3>
 <p>
 ・社会人野球の投手として“光る素材”を持つ。出力ポテンシャルは高く、身体感覚も鋭い。<br>
@@ -167,6 +207,8 @@ document.addEventListener("DOMContentLoaded", function() {
 “息を通して動く”という基本ができなければ、どれだけ走っても数字は変わらない。
 </p>
 
+  </div>    
+    
 </section>
 
 <section id="menu">
@@ -211,6 +253,13 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class="btn-back">
   <a href="index.html">← チーム共通ページへ戻る</a>
 </div>
+
+<script>
+function toggleFeedback() {
+  const detail = document.getElementById("feedback-detail");
+  detail.style.display = (detail.style.display === "block") ? "none" : "block";
+}
+</script>
 
 <footer>
   <p>© 2025 adjustment-lab | Design & Concept by H. Nishimoto</p>
