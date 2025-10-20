@@ -147,18 +147,18 @@
   <!-- 詳細（本文は一字一句そのまま） -->
   <div id="feedback-detail" class="feedback-detail">
     <h3>良い特徴</h3>
-    <p>・体の感じ方に繊細さがあり、動きの“質”を感じ取れる感性がある。<br>
-       ・リズムとテンポの取り方がうまく、形で覚えるのではなく感覚で掴むタイプ。<br>
-       ・ボールの回転や軌道に対する感受性が高く、復帰後の精度型投手としての伸びしろは十分。</p>
+    <p>・体の感じ方に繊細さがあり、動きの“質”を感じ取れる感性がある。<br><br>
+       ・リズムとテンポの取り方がうまく、形で覚えるのではなく感覚で掴むタイプ。<<br>
+       ・ボールの回転や軌道に対する感受性が高く、復帰後の精度型投手としての伸びしろは十分。</p><br>
 
     <h3>課題</h3>
-    <p>「壊したくない」という意識が強すぎて、体の動きを自分で止めている。<br>
-       それが痛みの再発を防いでいるように見えて、実際は“出力を奪っている”。<br>
-       恐怖ではなく、制御で守る段階に入っている。<br>
-       今は安全領域の中で<strong>“骨盤を動かし、胸を遅らせる”</strong>時間を取り戻すこと。<br>
-       回旋が戻れば、腕の振りは自然に戻る。<br><br>
-       自分流で感覚を探すのではなく、信頼できる手を借りながら“正しく冒険”していくこと。<br>
-       今の慎重さは悪くない、ただそのままでは150kmのポテンシャルは消える。</p>
+    <p>・「もう壊したくない」という意識が強すぎて、体の動きを自分で止めている。<br><br>
+       ・それが痛みの再発を防いでいるように見えて、実際は“出力を奪っている”。<br><br>
+       ・恐怖ではなく、制御で守る段階に入っている。<br>
+       ・今は安全領域の中で<strong>“骨盤を動かし、胸を遅らせる”</strong>時間を取り戻すこと。<br><br>
+       ・回旋が戻れば、腕の振りは自然に戻る。<br><br>
+       ・自分流で感覚を探すのではなく、信頼できる手を借りながら“正しく冒険”していくこと。<br><br>
+       ・今の慎重さは悪くない、ただそのままでは150kmのポテンシャルは消える。</p><br>
 
     <h3>心拍傾向</h3>
     <p>平均HR<strong>150bpm</strong>、1分後ΔHR<strong>22bpm</strong>。<br>
@@ -203,7 +203,7 @@
   <h2>メモ</h2>
   <p>・スロー動作で「骨盤先行→胸遅れ」の時間差を徹底観察。<br>
      ・骨盤角度と胸郭角度の差を確認。<br>
-     ・辰村はトルク生成の“遅れ”を覚えれば覚醒する。<br>
+     ・トルク生成の“遅れ”を覚えれば覚醒する可能性がある。<br>
      ・焦らず、ズレを作ってから爆発させる。</p>
 </section>
 
@@ -212,14 +212,23 @@
 </div>
 
 <script>
-/* タップで詳細開閉（ヒントの表示/非表示も同期） */
-function toggleFeedback(){
+function toggleFeedback() {
   const detail = document.getElementById("feedback-detail");
   const hint = document.querySelector(".feedback-summary .hint");
-  const showing = detail.classList.toggle("show");
-  if (hint) hint.style.display = showing ? "none" : "block";
+
+  // すでに開いている場合 → 閉じる
+  if (detail.classList.contains("show")) {
+    detail.classList.remove("show");
+    if (hint) hint.style.display = "block";
+  } 
+  // 閉じている場合 → 開く
+  else {
+    detail.classList.add("show");
+    if (hint) hint.style.display = "none";
+  }
 }
 </script>
+  
 <script>
 /* パスワード保護（キャンセル含め弾く） */
 document.addEventListener("DOMContentLoaded", function(){
@@ -232,7 +241,8 @@ document.addEventListener("DOMContentLoaded", function(){
 </script>  
 
 <footer>
-  <p>© 2025 adjustment-lab |<br> Design & Concept by H. Nishimoto</p>
+  <p>© 2025 adjustment-lab |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Design & Concept by H. Nishimoto</p>
 </footer>
 
 </body>
