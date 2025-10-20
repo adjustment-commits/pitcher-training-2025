@@ -50,6 +50,31 @@
     table{font-size:0.85rem;}
     footer{font-size:0.8rem;}
   }
+
+.data-card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-top: 15px;
+}
+
+.data-card p {
+  margin: 8px 0;
+  border-bottom: 1px solid #1f2937;
+  padding-bottom: 6px;
+}
+
+.data-card p:last-child {
+  border-bottom: none;
+}
+
+@media screen and (max-width: 768px) {
+  .data-card {
+    padding: 14px 16px;
+    font-size: 0.9rem;
+  }
+}
 </style>
 
 <!-- フィードバック開閉UI（黒田と同仕様） -->
@@ -107,10 +132,16 @@ document.addEventListener("DOMContentLoaded", function(){
 
 <section id="data">
   <h2>測定結果</h2>
-  <table>
-    <tr><th>クーパー走</th><th>MB(front)</th><th>右回旋</th><th>左回旋</th><th>30mスプリント</th></tr>
-    <tr><td>2585 m</td><td>16.8 m</td><td>13.6 m</td><td>14.2 m</td><td>4.30 s</td></tr>
-  </table>
+  <div class="data-card">
+    <p><strong>クーパー走：</strong>2585 m</p>
+    <p><strong>MB(back)：</strong>16.8 m</p>
+    <p><strong>右回旋：</strong>13.6 m</p>
+    <p><strong>左回旋：</strong>14.2 m</p>
+    <p><strong>30mスプリント：</strong>4.30 s</p>
+    <p><strong>20mスプリント：</strong>2.83 s</p>
+    <p><strong>10mスプリント：</strong>1.50 s</p>
+  </div>
+   
 </section>
 
 <section id="feedback">
