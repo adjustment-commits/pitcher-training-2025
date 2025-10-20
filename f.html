@@ -83,20 +83,34 @@
   display:block;
   opacity:1;
 }
+.data-card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-top: 15px;
+}
+
+.data-card p {
+  margin: 8px 0;
+  border-bottom: 1px solid #1f2937;
+  padding-bottom: 6px;
+}
+
+.data-card p:last-child {
+  border-bottom: none;
+}
+
+@media screen and (max-width: 768px) {
+  .data-card {
+    padding: 14px 16px;
+    font-size: 0.9rem;
+  }
+}
+  
 </style>
 </head>
 <body>
-
-<script>
-/* パスワード保護 */
-document.addEventListener("DOMContentLoaded", function(){
-  const password = prompt("パスワードを入力してください：");
-  if (!password || password !== "14rf") {
-    alert("パスワードが違います。");
-    window.location.href = "index.html";
-  }
-});
-</script>
 
 <header>
   <h1>R. FUJIWARA</h1>
@@ -222,8 +236,19 @@ function toggleFeedback(){
 }
 </script>
 
+<script>
+/* パスワード保護 */
+document.addEventListener("DOMContentLoaded", function(){
+  const password = prompt("パスワードを入力してください：");
+  if (!password || password !== "14rf") {
+    alert("パスワードが違います。");
+    window.location.href = "index.html";
+  }
+});
+</script>
+
 <footer>
-  <p>© 2025 adjustment-lab | Design & Concept by H. Nishimoto</p>
+  <p>© 2025 adjustment-lab |<br> Design & Concept by H. Nishimoto</p>
 </footer>
 
 </body>
