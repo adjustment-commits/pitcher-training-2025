@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FKK投手｜1月メニュー（Week1-2）｜4人＋新人ベースライン</title>
+<meta name="theme-color" content="#0d1117">
+<style>
+:root{
+  --bg:#0d1117;
+  --panel:#111827;
+  --panel2:#0b1220;
+  --line:#1f2937;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#60a5fa;
+  --good:#22c55e;
+  --warn:#f59e0b;
+  --bad:#ef4444;
+  --chip:#0b1220;
+  --chipLine:#22314d;
+  font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+}
+a{color:inherit}
+.wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:18px 14px 80px;
+}
+header{
+  padding:18px 14px;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(96,165,250,0.10), rgba(0,0,0,0));
+}
+h1{
+  margin:0 0 6px;
+  font-size:1.25rem;
+  letter-spacing:.02em;
+  color:var(--accent);
+}
+.sub{
+  margin:0;
+  color:var(--muted);
+  font-size:.95rem;
+}
+.row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:14px;
+}
+.card.tight{padding:12px}
+.card h2{
+  margin:0 0 10px;
+  font-size:1.05rem;
+  color:#c7ddff;
+}
+.grid2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+@media (max-width:900px){
+  .grid2{grid-template-columns:1fr}
+}
+.toolbar{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-top:10px;
+}
+.select{
+  flex:1;
+  min-width:240px;
+}
+select, input[type="text"], textarea{
+  width:100%;
+  background:var(--panel2);
+  border:1px solid var(--line);
+  color:var(--text);
+  padding:10px 10px;
+  border-radius:10px;
+  outline:none;
+}
+textarea{min-height:110px; resize:vertical}
+.btn{
+  background:#2563eb;
+  color:#fff;
+  border:0;
+  padding:9px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:.95rem;
+}
+.btn.sub{
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--text);
+}
+.btn.ghost{
+  background:transparent;
+  border:1px dashed var(--line);
+  color:var(--muted);
+}
+.btn:active{transform:translateY(1px)}
+.pills{display:flex; gap:8px; flex-wrap:wrap}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:var(--chip);
+  border:1px solid var(--chipLine);
+  color:#c7ddff;
+  font-size:.85rem;
+}
+.pill b{color:#fff}
+hr.sep{
+  border:0;
+  border-top:1px solid var(--line);
+  margin:14px 0;
+}
+.tabs{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.tab{
+  border:1px solid var(--line);
+  background:transparent;
+  color:var(--text);
+  padding:8px 10px;
+  border-radius:10px;
+  cursor:pointer;
+}
+.tab.active{
+  border-color:rgba(96,165,250,0.8);
+  box-shadow:0 0 0 2px rgba(96,165,250,0.15) inset;
+}
+.sectionTitle{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin:0 0 8px;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:4px 8px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  color:var(--muted);
+  font-size:.82rem;
+}
+.kpi{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:10px;
+}
+@media (max-width:900px){
+  .kpi{grid-template-columns:repeat(2, 1fr)}
+}
+.kpi .box{
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:10px;
+}
+.kpi .box .label{color:var(--muted); font-size:.8rem}
+.kpi .box .value{font-size:1.05rem; margin-top:4px; color:#fff}
+.list{
+  display:grid;
+  gap:10px;
+}
+.ex{
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px;
+}
+.exTop{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:flex-start;
+}
+.exName{
+  margin:0;
+  font-size:1rem;
+  color:#eaf2ff;
+}
+.meta{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.chip{
+  font-size:.8rem;
+  color:#cbd5e1;
+  border:1px solid var(--line);
+  padding:3px 8px;
+  border-radius:999px;
+}
+.chip.ok{border-color:rgba(34,197,94,0.5); color:#bbf7d0}
+.chip.w{border-color:rgba(245,158,11,0.5); color:#fde68a}
+.chip.b{border-color:rgba(239,68,68,0.5); color:#fecaca}
+.small{
+  color:var(--muted);
+  font-size:.9rem;
+  margin:6px 0 0;
+}
+.kv{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:8px;
+  margin-top:8px;
+}
+@media (max-width:520px){
+  .kv{grid-template-columns:1fr}
+}
+.kv .k{color:var(--muted)}
+.checkRow{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-top:10px;
+}
+.checkRow label{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  font-size:.92rem;
+  color:#dbeafe;
+}
+input[type="checkbox"]{
+  width:18px; height:18px;
+  accent-color:#60a5fa;
+}
+.footer{
+  margin-top:18px;
+  color:var(--muted);
+  font-size:.9rem;
+  text-align:center;
+}
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.72);
+  z-index:999;
+  padding:16px;
+  overflow:auto;
+}
+.modal .box{
+  max-width:760px;
+  margin:6vh auto;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+}
+.modal .box h3{
+  margin:0 0 8px;
+  color:#c7ddff;
+}
+.modal .close{
+  float:right;
+  cursor:pointer;
+  font-size:22px;
+  color:#c7ddff;
+  padding:2px 6px;
+  border-radius:8px;
+  border:1px solid var(--line);
+}
+.note{
+  background:rgba(96,165,250,0.08);
+  border:1px solid rgba(96,165,250,0.25);
+  padding:10px 12px;
+  border-radius:12px;
+  color:#dbeafe;
+}
+.warnBox{
+  background:rgba(245,158,11,0.08);
+  border:1px solid rgba(245,158,11,0.22);
+  padding:10px 12px;
+  border-radius:12px;
+  color:#fde68a;
+}
+.dangerBox{
+  background:rgba(239,68,68,0.08);
+  border:1px solid rgba(239,68,68,0.22);
+  padding:10px 12px;
+  border-radius:12px;
+  color:#fecaca;
+}
+.mini{
+  font-size:.85rem;
+  color:var(--muted);
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>FKK投手｜1月メニュー（Week1-2）｜4人＋新人ベースライン</h1>
+    <p class="sub">目的：雪シーズンでも「呼吸×出力×流れ」を崩さず、立ち投げ期（1月中旬〜）へ繋げる。新人は「選択権なしの最低基準（ベースライン）」として運用。</p>
+    <div class="toolbar">
+      <div class="select">
+        <select id="athleteSelect"></select>
+      </div>
+      <button class="btn sub" id="btnOpenGlossary">用語・姿勢（スプリットスタンス等）</button>
+      <button class="btn sub" id="btnOpenLibrary">種目ライブラリ（MB/チューブ等）</button>
+      <button class="btn ghost" id="btnReset">進捗リセット（端末内）</button>
+    </div>
+    <div class="row">
+      <span class="pill"><b>週2回</b>（DAY1/DAY2）</span>
+      <span class="pill"><b>Week1-2</b>（同構成で反復）</span>
+      <span class="pill"><b>RPE</b> 7〜8を淡々と（新人は選択権なし）</span>
+      <span class="pill"><b>投げ環境</b>：ネットスロー／プライオ／MB（別場所）／チューブ／シャフト／DB／KB</span>
+    </div>
+  </div>
+</header>
+<div class="wrap">
+  <div class="grid2">
+<section class="card" id="panelProfile">
+  <div class="sectionTitle">
+    <h2 style="margin:0">対象・狙い</h2>
+    <span class="badge" id="profileTag">—</span>
+  </div>
+  <div id="profileText" class="small"></div>
+  <hr class="sep">
+  <div class="kpi">
+    <div class="box">
+      <div class="label">優先テーマ</div>
+      <div class="value" id="kpiTheme">—</div>
+    </div>
+    <div class="box">
+      <div class="label">注意（壊れやすさ）</div>
+      <div class="value" id="kpiRisk">—</div>
+    </div>
+    <div class="box">
+      <div class="label">投げに繋ぐ鍵</div>
+      <div class="value" id="kpiKey">—</div>
+    </div>
+    <div class="box">
+      <div class="label">セッション強度</div>
+      <div class="value" id="kpiRPE">—</div>
+    </div>
+  </div>
+  <hr class="sep">
+  <div class="note">
+    新人（ベースライン）は「きつい」よりも「逃げられない構造」。呼吸停止・代償・左右差が出たら、その場で強度を下げて質を戻す（量で押さない）。
+  </div>
+</section>
+
+<section class="card" id="panelProgress">
+  <div class="sectionTitle">
+    <h2 style="margin:0">進捗・メモ（端末保存）</h2>
+    <span class="badge" id="sessionKey">—</span>
+  </div>
+
+  <div class="tabs" style="margin-top:8px">
+    <button class="tab active" data-week="1">Week1</button>
+    <button class="tab" data-week="2">Week2</button>
+  </div>
+
+  <div class="tabs" style="margin-top:8px">
+    <button class="tab active" data-day="1">DAY1</button>
+    <button class="tab" data-day="2">DAY2</button>
+  </div>
+
+  <div class="checkRow">
+    <label><input type="checkbox" id="chkDone"> 実施済みにする</label>
+    <button class="btn sub" id="btnSaveNote">メモ保存</button>
+  </div>
+
+  <div style="margin-top:10px">
+    <input type="text" id="inpRPE" placeholder="当日のRPE（例：7.5）">
+  </div>
+  <div style="margin-top:10px">
+    <input type="text" id="inpHR" placeholder="心拍メモ（例：最大165/1分後115、など）">
+  </div>
+  <div style="margin-top:10px">
+    <textarea id="txtNote" placeholder="メモ（例：呼吸が止まる局面、左右差、痛み、投げの感覚、など）"></textarea>
+  </div>
+
+  <div style="margin-top:10px" class="warnBox">
+    ルール：フォームを探しすぎない。呼吸が止まる＝その瞬間は「制御できていない」。まず呼吸を戻す → そのまま動作を続ける。
+  </div>
+</section>
+</div>
+  <section class="card" style="margin-top:12px">
+    <div class="sectionTitle">
+      <h2 style="margin:0">セッション内容</h2>
+      <span class="badge">Week1-2 同構成（反復で精度を上げる）</span>
+    </div>
+    <div id="sessionContent" class="list"></div>
+<hr class="sep">
+<div class="dangerBox">
+  禁止：呼吸停止での出力（力み）／痛みを伴うプライオ／惰性の高回数。<br>
+  目安：動作が崩れる前に終える（余裕を残すのではなく、崩れ始める直前で止める）。
+</div>
+</section>
+
+  <div class="footer">
+    © 2025 adjustment-lab / FKK Pitcher Program (Week1-2)
+  </div>
+</div>
+<!-- ===== 用語・姿勢モーダル ===== -->
+<div class="modal" id="modalGlossary">
+  <div class="box">
+    <span class="close" id="closeGlossary">×</span>
+    <h3>用語・姿勢の定義（現場でブレないための共通言語）</h3>
+<div class="note">
+  このページでの「スプリットスタンス」は、単に前後に開脚するだけではなく、投手動作に繋がる“荷重の作り方”を含む定義。
+</div>
+
+<div class="kv">
+  <div class="k">スプリットスタンス</div>
+  <div class="v">
+    前後開脚（前脚：つま先正面〜やや外、後脚：つま先正面）。骨盤は正面に近く、胸郭は軽く自由。<br>
+    重要：前脚に「垂直荷重」、後脚に「推進の準備（股関節伸展の余白）」を残す。<br>
+    禁止：骨盤ごと回る／腰を反る／前脚膝が内側へ潰れる。
+  </div>
+
+  <div class="k">呼吸の扱い</div>
+  <div class="v">
+    このメニューは「ブリージングをやる」ではなく「動作中に呼吸を止めない」。<br>
+    目安：出力局面で短く吐ける（息を止めて押さない）。吸気は姿勢を整える合図として使う。
+  </div>
+
+  <div class="k">ネットスロー</div>
+  <div class="v">
+    強投ではなく“連動の確認”。プライオは「速さ」より「リリース位置と回旋の順序」を優先。
+  </div>
+
+  <div class="k">RPE</div>
+  <div class="v">
+    7〜8：会話は難しいが、動作は崩さず遂行できる。9以上は「形が壊れやすい」ので原則禁止（自走TMスプリントでも一瞬のみ）。
+  </div>
+</div>
+
+<div class="mini" style="margin-top:12px">
+  目的：指導の言葉を減らす（＝混乱を減らす）。「呼吸」「骨盤主導」「止めない」の3語で回る設計にする。
+</div>  </div>
+</div>
+<!-- ===== 種目ライブラリ モーダル ===== -->
+<div class="modal" id="modalLibrary">
+  <div class="box">
+    <span class="close" id="closeLibrary">×</span>
+    <h3>種目ライブラリ（選択制で偏らせないための母集団）</h3>
+    <p class="small">ここは「自由に選べる」ではなく、「指示された枠から選ぶ」運用を想定。各カテゴリ10種目ずつ（簡潔版）。</p>
+<div class="warnBox">
+  重要：新人（ベースライン）は原則「選択なし」。4人は補強枠のみ選択可（偏り防止のため、週ごとにカテゴリ指定）。
+</div>
+
+<div id="libraryContent" class="list" style="margin-top:10px"></div>  </div>
+</div>
+<script>
+/* =========================
+   データ定義
+   ========================= */
+
+const ATHLETES = [
+  {
+    id:"base",
+    name:"新人（ベースライン｜選択権なし）",
+    tag:"BASELINE",
+    profile:"合流前の準備不足で壊れやすい層を想定。『きつい』ではなく『逃げられない構造』で、呼吸停止・代償・左右差を早期に可視化する。量より質。全ての動作で呼吸を止めない。",
+    theme:"呼吸×動作（止めない）",
+    risk:"代償・左右差",
+    key:"淡々と遂行",
+    rpe:"DAY1 7 / DAY2 7.5"
+  },
+  {
+    id:"kuroda",
+    name:"黒田｜巧さと出力はあるが噛み合わず出しきれない",
+    tag:"KURODA",
+    profile:"巧さと出力はあるが、噛み合わないときに制御が落ちるタイプ。『整える』より『呼吸で揃えて動き続ける』が鍵。切り替え（出力→制御→出力）を作る。",
+    theme:"切替（出力↔制御）",
+    risk:"制御が飛ぶ",
+    key:"呼吸で揃える",
+    rpe:"DAY1 7.5 / DAY2 7.5"
+  },
+  {
+    id:"tatsumura",
+    name:"辰村｜フォーム課題多いが落ち着きは最上位",
+    tag:"TATSUMURA",
+    profile:"フォーム改善点は多いが、投手としての落ち着きがある。姿勢を探しすぎず、骨盤主導の推進と胸郭の自由度を保ったまま投げに繋ぐ。『形』より『順序』。",
+    theme:"順序（骨盤→胸郭→腕）",
+    risk:"肘の落ち／上体先行",
+    key:"順序を守る",
+    rpe:"DAY1 7 / DAY2 7.5"
+  },
+  {
+    id:"miyake",
+    name:"三宅｜出力高いが勝負球がなく連打されやすい",
+    tag:"MIYAKE",
+    profile:"出力は高いが勝負球の軸が立ちにくい。出力を上げるより、同じ出力を『毎回同じ順序で出せる』こと。疲労下での再現（同じリリースの前提）を作る。",
+    theme:"再現（疲労下）",
+    risk:"連打モード",
+    key:"同じ順序で出す",
+    rpe:"DAY1 7.5 / DAY2 8"
+  },
+  {
+    id:"fujiwara",
+    name:"藤原｜ポテンシャルを誤解しやすい（出力の勘違い）",
+    tag:"FUJIWARA",
+    profile:"『出力が高い』を勘違いしやすい。力むほど崩れるので、出力を“上げる”ではなく“制御して解放する”を教育する。スプリットスタンスでの内圧・骨盤主導を徹底。",
+    theme:"制御して解放",
+    risk:"力み／呼吸停止",
+    key:"吐いて出す",
+    rpe:"DAY1 7 / DAY2 7.5"
+  }
+];
+
+const COMMON_RULES = [
+  "各ブロックは『呼吸を止めない』が最優先。",
+  "RPEが上がるほど“形”ではなく“順序”を見る（骨盤→胸郭→腕）。",
+  "痛みが出たら即中断。違和感はメモし、次回は負荷を下げて再現性を確認。",
+  "MB投げ・叩きつけは別場所。できない日は代替（チューブ/シャフト）へ置換。"
+];
+
+/* 1月：Week1-2 同構成（反復） */
+const PROGRAM = {
+  weeks:{
+    1:{ title:"Week1｜基準作り（呼吸を止めずに動き続ける）" },
+    2:{ title:"Week2｜同構成で精度UP（疲労下でも順序を崩さない）" }
+  },
+  days:{
+    1:{
+      title:"DAY1｜反応→出力（短い出力を呼吸で制御）",
+      blocks:[
+        {
+          name:"0) ルール確認（2分）",
+          items:[
+            ex("本日のルール","呼吸停止ゼロ／骨盤主導／止めない","道具なし","—",
+               "開始前に全員で読み合わせ。『吐いて出す』『吸って整える』。"),
+          ]
+        },
+        {
+          name:"1) ウォームアップ（12〜15分）",
+          items:[
+            ex("スプリットスタンス・ブレス（動作内呼吸）","前後開脚で“吐いて安定→吸って整える”を動作中に実行","道具なし","各脚30秒×2set（RPE5）",
+               "前脚に垂直荷重。吐気で腹圧を作り、吸気で姿勢を積み上げる。腰反り禁止。"),
+            ex("クワドラペッド・リーチ（呼吸付き）","四つ這いで体幹を崩さず、呼気でリーチ・吸気で戻す","道具なし","左右8回×2set（RPE5-6）",
+               "肋骨が開きっぱなしにならない。呼気で肋骨が閉じる感覚。"),
+            ex("シャフト・オーバーヘッドリフト（呼吸付き）","胸郭の上下と骨盤の安定を同時に作る","シャフト","6回×2set（RPE5-6）",
+               "肩で上げない。吸気で上へ、吐気で骨盤を安定させて下ろす。")
+          ]
+        },
+        {
+          name:"2) メインA：反応スプリント（屋内500m通路／短区間）",
+          items:[
+            ex("反応スプリント 10m","合図に反応→骨盤から初動、吐いて1歩目","コーン/目印","10m×6本（休40-60秒）RPE7-8",
+               "腕で飛び出さない。1歩目で吐けるかを最優先。")
+          ]
+        },
+        {
+          name:"3) メインB：投げ動作に繋ぐ出力（ネット/プライオ/代替）",
+          items:[
+            ex("プライオボール・リズムスロー（ネット）","出力ではなく順序（骨盤→胸郭→腕）を固定","プライオボール/ネット","軽〜中：6回×3set（RPE7）",
+               "強投禁止。毎回同じリリース位置。吐気で“抜ける”感覚。"),
+            ex("代替：チューブ回旋プレス（スプリット）","投げの回旋を“吐気で安定”しながら作る","チューブ","左右10回×2set（RPE7）",
+               "骨盤を固定しすぎない。胸郭が“遅れて出る”。")
+          ]
+        },
+        {
+          name:"4) フィニッシュ：下半身＋体幹（8〜10分）",
+          items:[
+            ex("KBスプリットスクワット（呼吸付き）","前脚で支えて吐いて立つ。骨盤主導を強制","ケトルベル or DB","各脚8回×2set（RPE7）",
+               "吐気で立つ。吸気で降りる。膝が内に潰れたら負荷を下げる。"),
+            ex("デッドバグ（呼吸同期）","体幹を固めるのではなく“呼吸しながら保つ”","道具なし","左右6回×2set（RPE6）",
+               "呼気で肋骨が閉じる。腰の反り禁止。")
+          ]
+        },
+        {
+          name:"5) クール（5分）",
+          items:[
+            ex("ブリージングウォーク","回復局面での呼吸制御","通路","3〜5分（RPE3）",
+               "吸2拍・吐2拍で淡々と歩く。")
+          ]
+        }
+      ]
+    },
+    2:{
+      title:"DAY2｜持続→回復Δ（VO2max寄り：500m通路を使う）",
+      blocks:[
+        {
+          name:"1) ウォームアップ（10〜12分）",
+          items:[
+            ex("ウォーク→スキップ（呼吸一定）","心拍を上げすぎずリズムを作る","通路","各30秒×2周（RPE4-5）",
+               "呼吸テンポ一定。上体で跳ねない。"),
+            ex("スプリット・ヒンジ（呼吸付き）","股関節主導の前傾と骨盤の安定","道具なし or DB軽","各脚6回×2set（RPE5-6）",
+               "吐気で支える。背中を反らない。")
+          ]
+        },
+        {
+          name:"2) メイン：500m通路インターバル（VO2maxアプローチ）",
+          items:[
+            ex("500m×6本（レスト90秒）","心拍反応と回復Δを育てる。フォーム探しより“順序維持”","通路（片道500m）","RPE7.5〜8（全員）",
+               "各本：走り終わり直後心拍→1分後心拍を記録。呼吸停止しない速度で。"),
+            ex("代替（通路混雑/不可能時）：30秒走＋60秒歩×10","同等負荷で置換","任意","RPE7.5",
+               "30秒は“吐ける”強度。60秒歩で吸2吐2に戻す。")
+          ]
+        },
+        {
+          name:"3) メインB：上半身（投げの土台）",
+          items:[
+            ex("ダンベル・インクラインロウ（呼吸付き）","肩甲帯の安定と引く力（投球の土台）","ダンベル","10回×3set（RPE7）",
+               "吐いて引く、吸って戻す。すくめ禁止。"),
+            ex("ハーフニーリングDBプレス（呼吸付き）","骨盤固定＋胸郭自由のまま押す","ダンベル","各側8回×2set（RPE7）",
+               "腰反り禁止。吐気で押す。")
+          ]
+        },
+        {
+          name:"4) 仕上げ：体幹回旋（止めない）",
+          items:[
+            ex("シャフト・ローテーションリーチ（逆回旋）","肋骨と上肢の独立（投球で“遅れ”を作る）","シャフト","左右8回×2set（RPE6-7）",
+               "シャフト左へ→肋骨右へ（逆）。呼気で動かす。"),
+            ex("プランク・ローテーション（短時間）","疲労下でも制御して回す","道具なし","左右6回×2set（RPE7）",
+               "腰が落ちたら終了。呼吸停止禁止。")
+          ]
+        },
+        {
+          name:"5) クール（5分）",
+          items:[
+            ex("座位クロスアーム・ディープブレス","肋骨の再セット","道具なし","5呼吸×2set",
+               "吸って背中を広げ、吐いて肋骨を閉じる。")
+          ]
+        }
+      ]
+    }
+  }
+};
+
+/* 個別の“推奨上書き”：共通ブロックは同じ、強調点だけ追加 */
+const ATHLETE_TWEAKS = {
+  base:{
+    notes:[
+      "新人は補強枠の選択なし。規定セットを完遂することが仕事。",
+      "呼吸停止が出たら、負荷やスピードを落として“止めない”を優先。"
+    ],
+    swap:[]
+  },
+  kuroda:{
+    notes:[
+      "DAY1：反応スプリントで“吐いて1歩目”を絶対化。制御が飛ぶ前に速度を落として順序維持。",
+      "DAY2：500mは“速さ”より“同じ呼吸テンポで刻む”。"
+    ],
+    swap:[]
+  },
+  tatsumura:{
+    notes:[
+      "肘が落ちる兆候が出たら『胸郭を遅らせる』。肩で投げない。",
+      "上体先行になったら速度を落とし、骨盤から出る感覚を優先。"
+    ],
+    swap:[]
+  },
+  miyake:{
+    notes:[
+      "DAY2の500mは記録（直後→1分後）を必ず残す。回復Δが勝負球の“前提”になる。",
+      "プライオは強度より“同じリリース”の反復。"
+    ],
+    swap:[]
+  },
+  fujiwara:{
+    notes:[
+      "力みが出た瞬間にアウト。『吐いて出す』を守れないなら負荷/速度を落とす。",
+      "スプリット姿勢で骨盤が回る癖が出やすい。前脚の垂直荷重を死守。"
+    ],
+    swap:[]
+  }
+};
+
+/* =========================
+   ライブラリ（簡潔版）
+   ========================= */
+const LIBRARY = [
+  libGroup("MB（メディシンボール）10", [
+    "MBローテーションスロー（立位）｜3kg｜吐いて回して投げる",
+    "MBステップ＆スロー（前方向）｜3kg｜骨盤→胸郭→腕",
+    "MBチェストパス（壁）｜3kg｜肋骨を開かずに押す",
+    "MBスラム（別場所）｜3kg｜吐いて叩く（腰反り禁止）",
+    "MBスクープスロー（横）｜3kg｜股関節→回旋",
+    "MBニーリングローテーション｜2-3kg｜骨盤固定で胸郭回旋",
+    "MBオーバーヘッドバック（別場所）｜2-3kg｜反り禁止",
+    "MBリバウンドキャッチ（壁）｜2kg｜反応→制御",
+    "MB片膝立ちスロー｜2-3kg｜スプリット定義で実施",
+    "MBハンドオフ回旋（2人）｜2-3kg｜呼吸止めない"
+  ]),
+  libGroup("チューブ 10", [
+    "チューブ回旋プレス（スプリット）｜中強度｜10回×2",
+    "チューブパンチ（ハーフニーリング）｜中｜8回×2",
+    "チューブロウ（肩甲骨下制）｜中｜10回×2",
+    "チューブ外旋（肘90）｜軽-中｜12回×2",
+    "チューブ内旋（肘90）｜軽-中｜12回×2",
+    "チューブプルアパート｜軽｜12回×2",
+    "チューブフェイスプル｜軽-中｜10回×2",
+    "チューブヒップロック（骨盤安定）｜軽｜各脚20秒×2",
+    "チューブPallofプレス｜中｜10回×2",
+    "チューブランニングアーム（呼吸一定）｜軽｜20秒×2"
+  ]),
+  libGroup("シャフト 10", [
+    "シャフトOHリフト（呼吸付き）｜6回×2",
+    "シャフトヒップヒンジ（軽）｜8回×2",
+    "シャフトローテーションリーチ（逆回旋）｜8回×2",
+    "シャフトスプリットスクワット補助｜8回×2",
+    "シャフトスキャプション（肩甲帯）｜10回×2",
+    "シャフトグッドモーニング（軽）｜8回×2",
+    "シャフトパンチ＆リーチ（胸郭）｜8回×2",
+    "シャフトフロントラック呼吸｜5呼吸×2",
+    "シャフト片脚RDL補助｜6回×2",
+    "シャフトステップ＆ターン（骨盤主導）｜6回×2"
+  ]),
+  libGroup("体幹 10", [
+    "デッドバグ（呼吸同期）",
+    "プランク（短時間・呼吸停止禁止）",
+    "サイドプランク（呼吸付き）",
+    "プランクローテーション",
+    "バードドッグ（呼気で伸ばす）",
+    "Pallof（チューブでも可）",
+    "ツイストクランチ（肋骨回旋）",
+    "ハーフニーリング・リブターン",
+    "スプリット・アンチローテーション",
+    "キャリー（DB/KB）※歩ける場所で"
+  ]),
+  libGroup("自重 10", [
+    "スプリットスクワット",
+    "ヒップヒンジ",
+    "ヒップリフト（片脚可）",
+    "ワールドグレイテスト（呼吸付き）",
+    "プッシュアップ（呼吸付き）",
+    "リバースランジ",
+    "カーフレイズ（丁寧）",
+    "スクワット（呼吸同期）",
+    "スキャプラ・プッシュアップ",
+    "クワドラペッド・リーチ"
+  ]),
+  libGroup("ジャンプ（縄跳び可）10", [
+    "縄跳び（一定テンポ）｜30秒×3",
+    "ポゴ（小さく速く）｜15秒×4",
+    "スプリットポゴ｜10秒×4",
+    "垂直ジャンプ（低回数）｜3回×4",
+    "スケータージャンプ（制御）｜各5回×3",
+    "ボックスステップオフ（低）｜3回×4",
+    "連続ホップ（低強度）｜10秒×4",
+    "片脚着地保持（2秒）｜各5回×2",
+    "メディアルホップ（小）｜各6回×2",
+    "反応ジャンプ（合図）｜3回×4"
+  ]),
+  libGroup("ループバンド 10", [
+    "モンスターウォーク",
+    "ラテラルウォーク",
+    "ヒップロック（片脚）",
+    "バンドスクワット（膝外）",
+    "バンドRDL（軽）",
+    "バンド外転（立位）",
+    "バンド内転（立位）",
+    "バンドブリッジ",
+    "バンドスプリット保持",
+    "バンド肩外旋（軽）"
+  ]),
+  libGroup("ダンベル 10（ジム推奨）", [
+    "インクラインロウ｜8-12回×3（RPE7）",
+    "ワンハンドロウ｜8-10回×3（RPE7）",
+    "ハーフニーリングDBプレス｜8回×2（RPE7）",
+    "DBフロアプレス｜8-10回×3（RPE7）",
+    "DBルーマニアンDL｜6-8回×3（RPE7）",
+    "ゴブレットSQ（DB/KB）｜6-8回×3（RPE7）",
+    "DBスプリットSQ｜8回×2（RPE7）",
+    "DBスーツケースキャリー｜20-30m×3（RPE7）",
+    "DBリアデルトフライ｜10-12回×2（RPE6-7）",
+    "DB外旋（軽）｜12回×2（RPE5-6）"
+  ])
+];
+
+/* =========================
+   UIレンダリング
+   ========================= */
+
+const athleteSelect = document.getElementById("athleteSelect");
+const profileTag = document.getElementById("profileTag");
+const profileText = document.getElementById("profileText");
+const kpiTheme = document.getElementById("kpiTheme");
+const kpiRisk = document.getElementById("kpiRisk");
+const kpiKey = document.getElementById("kpiKey");
+const kpiRPE = document.getElementById("kpiRPE");
+
+const sessionContent = document.getElementById("sessionContent");
+const sessionKeyEl = document.getElementById("sessionKey");
+const chkDone = document.getElementById("chkDone");
+const inpRPE = document.getElementById("inpRPE");
+const inpHR = document.getElementById("inpHR");
+const txtNote = document.getElementById("txtNote");
+
+let state = {
+  athleteId:"base",
+  week:1,
+  day:1
+};
+
+function ex(name, aim, eq, load, how){
+  return {name, aim, eq, load, how};
+}
+function libGroup(title, items){
+  return {title, items};
+}
+
+function initSelect(){
+  athleteSelect.innerHTML = ATHLETES.map(a=>`<option value="${a.id}">${escapeHtml(a.name)}</option>`).join("");
+  athleteSelect.value = state.athleteId;
+}
+
+function renderProfile(){
+  const a = ATHLETES.find(x=>x.id===state.athleteId) || ATHLETES[0];
+  profileTag.textContent = a.tag;
+  profileText.innerHTML = `
+    <div class="small">${escapeHtml(a.profile)}</div>
+    <hr class="sep">
+    <div class="small">
+      <b>共通ルール：</b><br>
+      ${COMMON_RULES.map(s=>"・"+escapeHtml(s)).join("<br>")}
+    </div>
+    <div style="margin-top:10px" class="note">
+      <b>${escapeHtml(a.tag)} 追加メモ：</b><br>
+      ${(ATHLETE_TWEAKS[a.id]?.notes || []).map(s=>"・"+escapeHtml(s)).join("<br>") || "—"}
+    </div>
+  `;
+  kpiTheme.textContent = a.theme;
+  kpiRisk.textContent = a.risk;
+  kpiKey.textContent = a.key;
+  kpiRPE.textContent = a.rpe;
+}
+
+function renderSession(){
+  const weekObj = PROGRAM.weeks[state.week];
+  const dayObj = PROGRAM.days[state.day];
+  const a = ATHLETES.find(x=>x.id===state.athleteId) || ATHLETES[0];
+
+  sessionKeyEl.textContent = `${a.tag} / Week${state.week} / DAY${state.day}`;
+
+  const blocks = dayObj.blocks;
+
+  sessionContent.innerHTML = `
+    <div class="ex">
+      <div class="exTop">
+        <div>
+          <p class="exName" style="margin:0">${escapeHtml(weekObj.title)}</p>
+          <p class="small">${escapeHtml(dayObj.title)}</p>
+        </div>
+        <div class="meta">
+          <span class="chip ok">RPE目安：${escapeHtml(a.rpe)}</span>
+          <span class="chip">記録：直後→1分後心拍（DAY2は必須）</span>
+          <span class="chip w">呼吸停止 0</span>
+        </div>
+      </div>
+    </div>
+
+    ${blocks.map(b=>{
+      return `
+        <div class="ex">
+          <div class="exTop">
+            <p class="exName">${escapeHtml(b.name)}</p>
+            <div class="meta">
+              <span class="chip">Week1-2 同構成</span>
+              <span class="chip">偏り防止</span>
+            </div>
+          </div>
+          <div class="list" style="margin-top:10px">
+            ${b.items.map(it=>renderExercise(it)).join("")}
+          </div>
+        </div>
+      `;
+    }).join("")}
+  `;
+
+  // 進捗ロード
+  loadProgress();
+}
+
+function renderExercise(it){
+  return `
+    <div class="ex">
+      <div class="exTop">
+        <p class="exName">${escapeHtml(it.name)}</p>
+        <div class="meta">
+          <span class="chip">${escapeHtml(it.eq)}</span>
+          <span class="chip">${escapeHtml(it.load)}</span>
+        </div>
+      </div>
+      <p class="small"><b>狙い：</b>${escapeHtml(it.aim)}</p>
+      <p class="small"><b>やり方：</b>${escapeHtml(it.how)}</p>
+    </div>
+  `;
+}
+
+function renderLibrary(){
+  const el = document.getElementById("libraryContent");
+  el.innerHTML = LIBRARY.map(g=>{
+    return `
+      <div class="ex">
+        <div class="exTop">
+          <p class="exName">${escapeHtml(g.title)}</p>
+          <div class="meta"><span class="chip">10種目</span></div>
+        </div>
+        <div class="small" style="margin-top:8px">
+          ${g.items.map(s=>"・"+escapeHtml(s)).join("<br>")}
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+/* =========================
+   localStorage（端末内）
+   ========================= */
+function storageKey(){
+  return `FKK_PITCH_W12::${state.athleteId}::W${state.week}::D${state.day}`;
+}
+function loadProgress(){
+  const key = storageKey();
+  const raw = localStorage.getItem(key);
+  if(!raw){
+    chkDone.checked = false;
+    inpRPE.value = "";
+    inpHR.value = "";
+    txtNote.value = "";
+    return;
+  }
+  try{
+    const obj = JSON.parse(raw);
+    chkDone.checked = !!obj.done;
+    inpRPE.value = obj.rpe || "";
+    inpHR.value = obj.hr || "";
+    txtNote.value = obj.note || "";
+  }catch(e){
+    chkDone.checked = false;
+    inpRPE.value = "";
+    inpHR.value = "";
+    txtNote.value = "";
+  }
+}
+function saveProgress(){
+  const key = storageKey();
+  const obj = {
+    done: chkDone.checked,
+    rpe: (inpRPE.value || "").trim(),
+    hr: (inpHR.value || "").trim(),
+    note: (txtNote.value || "").trim(),
+    ts: Date.now()
+  };
+  localStorage.setItem(key, JSON.stringify(obj));
+}
+function resetAll(){
+  const prefix = "FKK_PITCH_W12::";
+  const keys = [];
+  for(let i=0;i<localStorage.length;i++){
+    const k = localStorage.key(i);
+    if(k && k.startsWith(prefix)) keys.push(k);
+  }
+  keys.forEach(k=>localStorage.removeItem(k));
+  loadProgress();
+}
+
+/* =========================
+   イベント
+   ========================= */
+athleteSelect.addEventListener("change", ()=>{
+  state.athleteId = athleteSelect.value;
+  renderProfile();
+  renderSession();
+});
+
+document.querySelectorAll('.tab[data-week]').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab[data-week]').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    state.week = parseInt(btn.getAttribute('data-week'),10);
+    renderSession();
+  });
+});
+document.querySelectorAll('.tab[data-day]').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab[data-day]').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    state.day = parseInt(btn.getAttribute('data-day'),10);
+    renderSession();
+  });
+});
+
+chkDone.addEventListener("change", saveProgress);
+document.getElementById("btnSaveNote").addEventListener("click", ()=>{
+  saveProgress();
+  flash("保存しました");
+});
+inpRPE.addEventListener("change", saveProgress);
+inpHR.addEventListener("change", saveProgress);
+
+document.getElementById("btnReset").addEventListener("click", ()=>{
+  resetAll();
+  flash("端末内の進捗をリセットしました");
+});
+
+/* モーダル */
+const modalGlossary = document.getElementById("modalGlossary");
+const modalLibrary = document.getElementById("modalLibrary");
+
+document.getElementById("btnOpenGlossary").addEventListener("click", ()=>{
+  modalGlossary.style.display="block";
+});
+document.getElementById("closeGlossary").addEventListener("click", ()=>{
+  modalGlossary.style.display="none";
+});
+document.getElementById("btnOpenLibrary").addEventListener("click", ()=>{
+  modalLibrary.style.display="block";
+});
+document.getElementById("closeLibrary").addEventListener("click", ()=>{
+  modalLibrary.style.display="none";
+});
+window.addEventListener("click",(e)=>{
+  if(e.target===modalGlossary) modalGlossary.style.display="none";
+  if(e.target===modalLibrary) modalLibrary.style.display="none";
+});
+
+/* =========================
+   ユーティリティ
+   ========================= */
+function escapeHtml(s){
+  return String(s ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+function flash(msg){
+  const d = document.createElement("div");
+  d.textContent = msg;
+  d.style.position="fixed";
+  d.style.left="50%";
+  d.style.bottom="18px";
+  d.style.transform="translateX(-50%)";
+  d.style.background="rgba(17,24,39,0.95)";
+  d.style.border="1px solid rgba(96,165,250,0.35)";
+  d.style.color="#dbeafe";
+  d.style.padding="10px 12px";
+  d.style.borderRadius="12px";
+  d.style.zIndex="9999";
+  d.style.fontSize=".92rem";
+  document.body.appendChild(d);
+  setTimeout(()=>{ d.remove(); }, 1200);
+}
+
+/* =========================
+   初期化
+   ========================= */
+(function boot(){
+  initSelect();
+  renderProfile();
+  renderLibrary();
+  renderSession();
+})();
+</script>
+</body>
+</html>
