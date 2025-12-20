@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FKK投手トレーニング2025オフシーズン</title>
+
+<!-- ✅ PWA対応設定 -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0d1117">
+<link rel="apple-touch-icon" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="mask-icon" href="icons/maskable-icon.png" color="#0d1117">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="PitcherTraining2025">
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(reg => console.log('Service Worker registered:', reg))
+      .catch(err => console.error('SW registration failed:', err));
+  });
+}
+</script>
+
+<style>
+  body {
+    background: #0d1117;
+    color: #e5e7eb;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    padding: 40px 20px 80px;
+    line-height: 1.8;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  header {
+    text-align: center;
+    border-bottom: 1px solid #1f2937;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+  }
+
+  h1 {
+    color: #60a5fa;
+    font-size: 1.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  h2 {
+    color: #93c5fd;
+    margin-top: 40px;
+    border-left: 4px solid #60a5fa;
+    padding-left: 10px;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  th {
+    background: #1e3a8a;
+    color: #f1f5f9;
+  }
+
+  button {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+
+  button:hover {
+    background: #1d4ed8;
+  }
+
+  section {
+    margin-top: 25px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    color: #9ca3af;
+    font-size: 0.9rem;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 50;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0,0,0,0.7);
+    padding: 10px;
+  }
+
+  .modal-content {
+    background: #111827;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #374151;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+  }
+
+  .close {
+    color: #93c5fd;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover {
+    color: #3b82f6;
+  }
+
+  .modal h3 {
+    color: #60a5fa;
+    margin-top: 0;
+  }
+
+  .modal p {
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+/* PC共通 */
+.modal-content {
+  margin: 8% auto;
+}
+  
+  /* ===== スマホ対応 ===== */
+    body {
+      padding: 20px 14px 60px;
+      font-size: 0.95rem;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      border-left-width: 3px;
+    }
+
+    th, td {
+      font-size: 0.85rem;
+      padding: 8px;
+    }
+
+    table {
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+
+    button {
+      padding: 5px 10px;
+      font-size: 0.85rem;
+    }
+
+/* スマホ専用 */
+  .modal-content {
+    margin: 18% auto; /* 中央寄せで見やすく */
+  }
+    footer {
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<style>
+  /* ==============================
+     プレイヤーリンク（選手ボタン）
+     ============================== */
+  #players div a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    min-width: 140px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  #players div a:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+  }
+
+  /* ==============================
+     テーブル スクロール・整列補正
+     ============================== */
+
+  th, td {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  /* ==============================
+     長文段落の可読性向上
+     ============================== */
+  #summary p,
+  #program p,
+  #players p {
+    text-align: left;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ==============================
+     スマホ表示最適化
+     ============================== */
+  @media screen and (max-width: 768px) {
+    #players div {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    #players div a {
+      width: 100%;
+      min-width: unset;
+      margin: 0;
+      padding: 12px 0;
+      font-size: 1rem;
+    }
+
+    th, td {
+      padding: 6px 8px;
+    }
+
+    #program p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      padding: 0 10px;
+    }
+
+    #summary, #program, #players {
+      margin-bottom: 40px;
+    }
+
+    /* モーダル位置調整 */
+    .modal-content {
+      margin-top: 25%;
+      width: 92%;
+      font-size: 0.9rem;
+    }
+
+    .modal h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.6em;
+    }
+
+    .modal p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+}
+
+/* ===============================
+   環境別プログラム：スマホ最適化カード表示
+   =============================== */
+
+/* ===== カード構成を全デバイス共通化 ===== */
+.env-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.env-card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 10px;
+  padding: 20px 18px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.env-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.env-card h3 {
+  color: #93c5fd;
+  margin-top: 0;
+}
+.env-card p {
+  margin: 6px 0;
+  line-height: 1.6;
+}
+.env-card button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ===== 表は常に非表示 ===== */
+#program table {
+  display: none !important;
+}
+
+
+</style>
+  
+</head>
+<body>
+
+<header>
+  <h1>FKK投手トレーニング<br>2025オフシーズン</h1>
+  <p>Equal Load System <br>― 環境に応じて同等負荷を得る<br>「呼吸 × 出力 × 流れ」</p>
+</header>
+
+<section id="summary">
+  <h2>チーム全体の傾向</h2>
+  <p>平均として基礎的な走力と出力は中水準。<br>
+     全体的に“中強度でまとめる傾向”があり、<strong>瞬発局面での呼吸と出力の同期</strong>に課題が見られる。<br>
+     この冬は、<strong>環境に左右されず同一強度で刺激を与える</strong>ことを目的に、<strong>骨盤主導 × 呼吸連動</strong>を軸に設計。</p>
+</section>
+
+<section id="program">
+  <h2>環境別プログラム（a〜e）</h2>
+  
+    <!-- スマホ用カード表示 -->
+<div class="env-cards">
+  <div class="env-card">
+    <h3>a｜屋外（球場・外周など）</h3>
+    <p><strong>主目的：</strong> 呼吸と出力の連動／滑走感覚の再構築</p>
+    <p><strong>メイン内容：</strong> 前傾テンポ走・ペース走・流し走</p>
+    <button onclick="openModal('a')">詳細</button>
+  </div>
+
+  <div class="env-card">
+    <h3>b｜屋内（20m前後）</h3>
+    <p><strong>主目的：</strong> 短距離反応と姿勢制御</p>
+    <p><strong>メイン内容：</strong> 反応スプリント・MBスロー・スプリットポジションプレス</p>
+    <button onclick="openModal('b')">詳細</button>
+  </div>
+
+  <div class="env-card">
+    <h3>c｜電動式トレッドミル</h3>
+    <p><strong>主目的：</strong> 呼吸テンポと出力維持</p>
+    <p><strong>メイン内容：</strong> テンポ走・変速走・ブリージングウォーク</p>
+    <button onclick="openModal('c')">詳細</button>
+  </div>
+
+  <div class="env-card">
+    <h3>d｜自走式トレッドミル</h3>
+    <p><strong>主目的：</strong> 地面反力と骨盤主導の加速</p>
+    <p><strong>メイン内容：</strong> 15秒スプリント・30秒テンポ走・インターバル走</p>
+    <button onclick="openModal('d')">詳細</button>
+  </div>
+
+  <div class="env-card">
+    <h3>e｜屋内サーキット</h3>
+    <p><strong>主目的：</strong> 全身連動とねじれ制御</p>
+    <p><strong>メイン内容：</strong> 呼吸系・出力系・回旋系サーキット</p>
+    <button onclick="openModal('e')">詳細</button>
+  </div>
+</div>
+
+<p style="margin-top:10px; color:#9ca3af; line-height:1.8;">
+※RPE（自覚的運動強度）は自身の体感疲労度。<br>
+どの環境（a〜e）でも<strong>同等の生理・動作効果</strong>を得られるよう設計されています。<br>
+天候や施設条件に応じて自由に選択しても、効果の偏りはありません。<br><br>
+推奨順位：① 屋外（a）／② 自走式TM（d）／③ 屋内（b）／④ 電動TM（c）／⑤ サーキット（e）<br><br>
+どの環境でも、<strong>「呼吸 × 出力 × 流れ」</strong>の原理は共通です。
+</p>
+</section>
+
+<section id="players">
+  <h2>個別ページへ</h2>
+  <p style="color:#9ca3af;">測定結果・フィードバック・補強内容を選手別に閲覧できます。</p>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px;">
+    <a href="k.html" style="background:#3b82f6;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:bold;">Y. KURODA</a>
+    <a href="t.html" style="background:#ef4444;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:bold;">Y. TATSUMURA</a>
+    <a href="m.html" style="background:#22c55e;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:bold;">Y. MIYAKE</a>
+    <a href="f.html" style="background:#facc15;color:#000;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:bold;">R. FUJIWARA</a>
+  </div>
+</section>
+
+<!-- ==================== A：屋外 ==================== -->
+<div id="a" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('a')">&times;</span>
+<h3>a｜屋外（球場・外周）</h3>
+<p><strong>目的：</strong> 呼吸リズムと出力の同期、骨盤主導による滑走感覚の再教育。</p>
+<p><strong>メニュー構成：</strong><br>
+・前傾テンポ走 <button onclick="openModal('a-tempo')">解説</button><br>
+・ペース走 <button onclick="openModal('a-pace')">解説</button><br>
+・流し走 <button onclick="openModal('a-nagashi')">解説</button>
+</p>
+<p><strong>推奨強度：</strong> RPE7前後／HR150bpm前後／60〜75分</p>
+<p><strong>誤り例：</strong> 呼吸を止める・上体が先行する・接地が強すぎる。</p>
+</div></div>
+
+<div id="a-tempo" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('a-tempo')">&times;</span>
+<h3>前傾テンポ走</h3>
+<p><strong>目的：</strong> 骨盤を主導にした重心移動と、呼吸リズムの同期を再教育する。</p>
+<p><strong>方法：</strong> 軽い前傾姿勢からスタートし、胸を張らずに骨盤を前へ滑らせる。<br>
+吐く息に合わせて地面を押し出し、吸気で姿勢を立て直す。<br>
+ストライドを伸ばそうとせず、テンポを一定に保つ（リズム重視）。</p>
+<p><strong>強度：</strong> 20m×6〜8本／RPE6〜7／HR140〜150。</p>
+<p><strong>誤り例：</strong> 上体から倒れ込む・腕でリズムを作る・吸気が浅い。</p>
+</div></div>
+
+<div id="a-pace" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('a-pace')">&times;</span>
+<h3>ペース走</h3>
+<p><strong>目的：</strong> 呼吸リズムの安定化と有酸素能力の向上。</p>
+<p><strong>方法：</strong> HR150前後を維持できるテンポで800m×3を走る。<br>
+呼吸リズム（吸2拍→吐2拍）を崩さず、力まずに滑走。<br>
+姿勢は胸郭を広げすぎず、骨盤でリード。</p>
+<p><strong>強度：</strong> 800m×3（レスト90秒）／RPE7／HR150±5。</p>
+<p><strong>誤り例：</strong> ペースが上がりすぎる・肩が上がる・呼吸が乱れる。</p>
+</div></div>
+
+<div id="a-nagashi" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('a-nagashi')">&times;</span>
+<h3>流し走</h3>
+<p><strong>目的：</strong> 動作連動と反応の滑らかさを高める。</p>
+<p><strong>方法：</strong> 30〜40mを7〜8割のスピードで滑るように走る。<br>
+骨盤を前に流す感覚で、腕と脚をリズムで連動させる。</p>
+<p><strong>強度：</strong> 30m×3〜5本／RPE6／HR140前後。</p>
+<p><strong>誤り例：</strong> 接地を強く打つ・腕が先行・重心が上下動する。</p>
+</div></div>
+
+<!-- ==================== B：屋内 ==================== -->
+<div id="b" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('b')">&times;</span>
+<h3>b｜屋内（20m前後）</h3>
+<p><strong>目的：</strong> 限られた空間での反応速度と姿勢制御を鍛え、骨盤主導の出力を維持する。</p>
+<p><strong>メニュー構成：</strong><br>
+・反応スプリント <button onclick="openModal('b-react')">解説</button><br>
+・メディシンボールスロー <button onclick="openModal('b-mb')">解説</button><br>
+・スプリットポジションプレス <button onclick="openModal('b-form')">解説</button></p>
+<p><strong>推奨強度：</strong> RPE7〜8／HR155前後／60分程度。</p>
+<p><strong>誤り例：</strong> 初動で力む・姿勢が起きる・骨盤が遅れる。</p>
+</div></div>
+
+<!-- -------- 反応スプリント -------- -->
+<div id="b-react" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('b-react')">&times;</span>
+<h3>b-1｜反応スプリント</h3>
+<p><strong>目的：</strong> 外的刺激に対する反応速度と骨盤からの初動出力を高める。</p>
+<p><strong>方法：</strong><br>
+1. 10〜15mの区間を設定し、合図（声・光）に反応してスタート。<br>
+2. 骨盤で押し出す意識で、上体を遅らせて滑るように加速。<br>
+3. スタート直後の「1歩目の呼吸」を吐くことで体幹を安定させる。</p>
+<p><strong>強度：</strong> 10m×5〜6本／RPE8／HR160前後。</p>
+<p><strong>誤り例：</strong> 腕で動く・呼吸を止める・接地が強すぎる。</p>
+</div></div>
+
+<!-- -------- MBスロー -------- -->
+<div id="b-mb" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('b-mb')">&times;</span>
+<h3>b-2｜メディシンボールスロー</h3>
+<p><strong>目的：</strong> 骨盤→胸郭→腕の出力連鎖を整え、呼吸と動作の一体化を作る。</p>
+<p><strong>方法：</strong><br>
+1. 3kgのMBを持ち、膝立ちまたは立位で胸の前に構える。<br>
+2. 吐く息に合わせて骨盤から回旋し、胸郭を遅らせて投げ出す。<br>
+3. 反対方向への戻り動作（吸気）で姿勢をリセットする。</p>
+<p><strong>強度：</strong> 各方向×10回×3set／RPE7。</p>
+<p><strong>誤り例：</strong> 腕で投げる・呼吸を止める・骨盤が動かない。</p>
+</div></div>
+
+<!-- -------- スプリント・ポジションブレス -------- -->
+<div id="b-form" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('b-form')">&times;</span>
+<h3>b-3｜スプリント・ポジションブレス</h3>
+<p><strong>目的：</strong> スプリント姿勢における骨盤前傾と呼吸の連動を教育する。</p>
+<p><strong>方法：</strong><br>
+1. 壁に手をついて前傾姿勢をとる（脚は前後に開き、膝は軽く曲げる）。<br>
+2. 吸気で骨盤を前に“立て”、吐気で地面を押すように圧を加える。<br>
+3. 呼吸のたびに、骨盤→肋骨→頭の順で姿勢を積み上げる感覚をつくる。<br>
+4. 吸うと姿勢が整い、吐くと出力ポジションが安定するリズムを体得する。</p>
+<p><strong>強度：</strong> 各脚30秒×3set／RPE6〜7。</p>
+<p><strong>誤り例：</strong> 腰を反る・肩で押す・呼吸が止まる。</p>
+</div></div>
+
+<!-- ==================== C：電動トレッドミル ==================== -->
+<div id="c" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('c-modal')">&times;</span>
+<h3>c｜電動式トレッドミル</h3>
+<p><strong>目的：</strong> 一定リズムでの呼吸テンポを作り、フォームの再現性を高める。</p>
+<p><strong>メニュー構成：</strong><br>
+・テンポ走 <button onclick="openModal('c-tempo')">解説</button><br>
+・変速走 <button onclick="openModal('c-shift')">解説</button><br>
+・ブリージングウォーク <button onclick="openModal('c-breath')">解説</button></p>
+<p><strong>推奨強度：</strong> RPE6〜7／HR140〜150／45〜60分。</p>
+<p><strong>誤り例：</strong> 呼吸を合わせずに走る・上体でリズムを作る・速度変化に力む。</p>
+</div></div>
+
+<!-- -------- テンポ走 -------- -->
+<div id="c-tempo" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('c-tempo')">&times;</span>
+<h3>c-1｜テンポ走</h3>
+<p><strong>目的：</strong> 呼吸テンポを安定させ、動作の持続力を高める。</p>
+<p><strong>方法：</strong><br>
+1. 設定速度を一定（最大速度の70〜75%）に保つ。<br>
+2. 呼吸リズム（吸2拍→吐2拍）で一定ペースを維持。<br>
+3. 骨盤の滑り出しを感じながら、上半身は脱力。</p>
+<p><strong>強度：</strong> 3〜5分×4set／RPE6〜7／HR145前後。</p>
+<p><strong>誤り例：</strong> 呼吸が止まる・上体を起こす・ピッチが崩れる。</p>
+</div></div>
+
+<!-- -------- 変速走 -------- -->
+<div id="c-shift" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('c-shift')">&times;</span>
+<h3>c-2｜変速走</h3>
+<p><strong>目的：</strong> 呼吸と出力の変化に身体を適応させ、フォームの安定性を高める。</p>
+<p><strong>方法：</strong><br>
+1. 1分ごとに速度を「遅→中→速→中→遅」と変化。<br>
+2. 各区間で呼吸テンポ（2:2）を変えずに維持。<br>
+3. 骨盤の動きが止まらないように注意。</p>
+<p><strong>強度：</strong> 15分×2set／RPE7／HR150前後。</p>
+<p><strong>誤り例：</strong> 速度変化で上体が硬直・吸気が浅くなる。</p>
+</div></div>
+
+<!-- -------- ブリージングウォーク -------- -->
+<div id="c-breath" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('c-breath')">&times;</span>
+<h3>c-3｜ブリージングウォーク</h3>
+<p><strong>目的：</strong> 歩行中の呼吸コントロールを鍛え、回復局面での内圧制御を習得する。</p>
+<p><strong>方法：</strong><br>
+1. 速度3〜4km/hでウォーキングしながら呼吸リズムを整える。<br>
+2. 吸気で胸郭を広げ、吐気で骨盤を前に滑らせる。<br>
+3. 腕は前後ではなく“上下に流れる”感覚で。</p>
+<p><strong>強度：</strong> 5分×3set／RPE5／HR120〜130。</p>
+<p><strong>誤り例：</strong> 胸で呼吸する・歩幅が大きすぎる・腕でバランスを取る。</p>
+</div></div>
+
+<!-- ==================== D：自走式トレッドミル ==================== -->
+<div id="d" class="modal"><div class="modal-content">
+  <span class="close" onclick="closeModal('d')">&times;</span>
+  <h3>d｜自走式トレッドミル</h3>
+  <p><strong>目的：</strong> 自走負荷による全身出力と心拍制御の強化。  
+     「フォームを整える」ではなく「出力を維持する」ためのセッション。</p>
+  <p><strong>メニュー構成：</strong><br>
+     ・15秒スプリント <button onclick="openModal('d-sprint')">解説</button><br>
+     ・30秒テンポ走 <button onclick="openModal('d-tempo')">解説</button><br>
+     ・インターバル走 <button onclick="openModal('d-interval')">解説</button>
+  </p>
+  <p><strong>推奨強度：</strong> RPE8〜9／HR160〜175／総時間25〜30分</p>
+  <p><strong>誤り例：</strong> 惰性でベルトを回す・呼吸を止める・上体で押す。</p>
+</div></div>
+
+<!-- -------- 15秒スプリント -------- -->
+<div id="d-sprint" class="modal"><div class="modal-content">
+  <span class="close" onclick="closeModal('d-sprint')">&times;</span>
+  <h3>d-1｜15秒スプリント</h3>
+  <p><strong>目的：</strong> 最大出力の立ち上がりと心拍反応のピーク把握。</p>
+  <p><strong>方法：</strong><br>
+  1. 自走式トレッドミルを0傾斜に設定。<br>
+  2. 15秒間、全力でベルトを動かす。<br>
+  3. 終了直後にレールへ逃げて完全停止。<br>
+  4. トレッドミルから降り、30〜45秒間は地面で歩行しながら呼吸リカバリー。<br>
+  5. 吸2拍・吐2拍を維持し、心拍が120〜130bpmに下がったら再セット。</p>
+  <p><strong>強度：</strong> 15秒×8〜10set／RPE9／HRmax170〜180。</p>
+  <p><strong>誤り例：</strong> 惰性でベルトを回す・出力を抜く・上体で押す。</p>
+</div></div>
+
+<!-- -------- 30秒テンポ走 -------- -->
+<div id="d-tempo" class="modal"><div class="modal-content">
+  <span class="close" onclick="closeModal('d-tempo')">&times;</span>
+  <h3>d-2｜30秒テンポ走</h3>
+  <p><strong>目的：</strong> 出力を抑えて“持続的な推進リズム”を維持する能力の強化。</p>
+  <p><strong>方法：</strong><br>
+  1. 30秒間、全力の80％テンポでベルトを回す。<br>
+  2. 呼吸リズム（吸2拍→吐2拍）を維持。<br>
+  3. 終了後はレール退避→降りて地面で60秒歩行しながら呼吸リカバリー。<br>
+  4. 呼吸を乱さず、次のセットに備える。</p>
+  <p><strong>強度：</strong> 30秒×6set／RPE7〜8／HR155〜165。</p>
+  <p><strong>誤り例：</strong> 惰性リカバリー・姿勢硬直・呼吸を止める。</p>
+</div></div>
+
+<!-- -------- インターバル走 -------- -->
+<div id="d-interval" class="modal"><div class="modal-content">
+  <span class="close" onclick="closeModal('d-interval')">&times;</span>
+  <h3>d-3｜インターバル走</h3>
+  <p><strong>目的：</strong> 疲労下での出力リズム維持と心拍回復Δの改善。</p>
+  <p><strong>方法：</strong><br>
+  1. 20秒全力走→40秒呼吸リカバリー（地面で歩行）。<br>
+  2. ベルト停止後は必ずレールに逃げ、降りて歩行。<br>
+  3. 心拍が160〜170で安定するようにテンポを保つ。<br>
+  4. 呼吸テンポ（吸2拍：吐2拍）を全セット通して崩さない。</p>
+  <p><strong>強度：</strong> 20秒＋40秒×10set／RPE8／HR160〜175。</p>
+  <p><strong>誤り例：</strong> 惰性でベルトを動かす・呼吸を止める・姿勢を意識しすぎて出力を下げる。</p>
+</div></div>
+
+<!-- ==================== E：屋内サーキット ==================== -->
+<div id="e" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e')">&times;</span>
+<h3>e｜屋内サーキット（呼吸／出力／肋骨回旋）</h3>
+<p><strong>目的：</strong> 呼吸・出力・ねじれ制御を統合し、全身の連動精度を高める。</p>
+<p><strong>メニュー構成：</strong><br>
+① 呼吸連動サーキット <button onclick="openModal('e-breath')">解説</button><br>
+② 出力反応サーキット <button onclick="openModal('e-power')">解説</button><br>
+③ 肋骨回旋サーキット <button onclick="openModal('e-rib')">解説</button></p>
+<p><strong>推奨強度：</strong> RPE7／60〜70分／HR140〜150。</p>
+<p><strong>誤り例：</strong> 肩で回す・骨盤が回る・呼吸を止める。</p>
+</div></div>
+
+<!-- ===== 呼吸連動サーキット（Breathing Coordination Circuit） ===== -->
+<div id="e-breath" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-breath')">&times;</span>
+<h3>e-1｜呼吸連動サーキット（Breathing Coordination Circuit）</h3>
+<p><strong>目的：</strong> 呼吸を動きの起点に置き、吸気で姿勢を立て、呼気で出力を安定させる。</p>
+
+<p><strong>構成：</strong><br>
+① ブリージング・クロール（仰向け） <button onclick="openModal('e-breath1')">解説</button><br>
+② クワドラペッド・ブレス（四つ這い） <button onclick="openModal('e-breath2')">解説</button><br>
+③ リブアイソレーション・ローテーション（胸郭分離） <button onclick="openModal('e-breath3')">解説</button><br>
+④ スティック・ブリージングリフト <button onclick="openModal('e-breath4')">解説</button><br>
+⑤ クロスアーム・ディープブレス（座位） <button onclick="openModal('e-breath5')">解説</button></p>
+
+<p><strong>強度：</strong> 各種目30秒×3set（サーキット約6分×3set＝約20分）</p>
+<p><strong>休息：</strong> 種目間15秒／セット間60〜90秒／RPE6〜7</p>
+<p><strong>誤り例：</strong> 胸だけで吸う・腹圧が抜ける・呼吸停止・姿勢崩壊。</p>
+</div></div>
+
+<!-- ===== 各種目詳細 ===== -->
+
+<!-- ① ブリージング・クロール -->
+<div id="e-breath1" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-breath1')">&times;</span>
+<h3>① ブリージング・クロール（仰向け）</h3>
+<p><strong>目的：</strong> 呼吸と四肢の交互連動を作り、肋骨と骨盤の協調性を整える。</p>
+<p><strong>方法：</strong><br>
+1. 仰向けで片膝を90°に立て、反対側の腕を頭上へ。<br>
+2. 吸気で腕と脚を入れ替え、吐気で戻す。<br>
+3. 腰を浮かさず、呼吸のリズムで体幹を安定させる。</p>
+<p><strong>ポイント：</strong> 肋骨と骨盤が「ねじり合う」感覚を意識。</p>
+<p><strong>誤り例：</strong> 腹圧が抜ける・腕でリード・腰反り。</p>
+</div></div>
+
+<!-- ② クワドラペッド・ブレス -->
+<div id="e-breath2" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-breath2')">&times;</span>
+<h3>② クワドラペッド・ブレス（四つ這い）</h3>
+<p><strong>目的：</strong> 重力下での呼吸制御と体幹安定性の強化。</p>
+<p><strong>方法：</strong><br>
+1. 四つ這い姿勢をとり、背骨を長く保つ。<br>
+2. 吸気で胸郭を広げ、吐気で腹圧を感じながら背中を安定させる。<br>
+3. 呼吸のたびに“背中で呼吸する”イメージを持つ。</p>
+<p><strong>ポイント：</strong> 呼気で肋骨が閉じる感覚をつかむ。</p>
+<p><strong>誤り例：</strong> 肩で吸う・背中が沈む・顎が上がる。</p>
+</div></div>
+
+<!-- ③ リブアイソレーション・ローテーション -->
+<div id="e-breath3" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-breath3')">&times;</span>
+<h3>③ リブアイソレーション・ローテーション（胸郭分離）</h3>
+<p><strong>目的：</strong> 下肢・骨盤・肩甲帯を固定した状態で、肋骨のみを回旋させる。</p>
+<p><strong>方法：</strong><br>
+1. 立位または椅子座位で、下肢と骨盤を完全に固定。<br>
+2. 肩甲帯と腕を正面に維持し、動かさない。<br>
+3. 吐気に合わせて肋骨を右（左）方向へわずかに回旋。<br>
+4. 吸気で中央に戻す。<br>
+5. 背骨の軸上で、肋骨だけが滑るように動く感覚を意識。</p>
+<p><strong>ポイント：</strong> 「肋骨がねじれる」のではなく、「肋骨が回る」。<br>
+下半身と肩甲帯の完全固定が前提。</p>
+<p><strong>誤り例：</strong> 肩を回す・骨盤が動く・胸で呼吸する。</p>
+</div></div>
+
+<!-- ④ スティック・ブリージングリフト -->
+<div id="e-breath4" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-breath4')">&times;</span>
+<h3>④ スティック・ブリージングリフト</h3>
+<p><strong>目的：</strong> 棒（シャフト）を用いて胸郭の上下伸展と呼吸連動を強化する。</p>
+<p><strong>方法：</strong><br>
+1. 足を肩幅に開き、両手でシャフトを肩幅より少し広く持つ。<br>
+2. 吸気でシャフトを頭上へ持ち上げながら、肋骨を縦に伸ばす。<br>
+3. 吐気で骨盤を安定させ、シャフトを胸の前まで下ろす。<br>
+4. 呼吸ごとに「吸って立ち上がる → 吐いて安定させる」を繰り返す。</p>
+<p><strong>ポイント：</strong> 肩で上げず、肋骨の動きで棒を持ち上げる感覚をつかむ。</p>
+<p><strong>誤り例：</strong> 腕で引き上げる・腰を反る・呼吸を止める。</p>
+</div></div>
+
+<!-- ⑤ クロスアーム・ディープブレス -->
+<div id="e-breath5" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-breath5')">&times;</span>
+<h3>⑤ クロスアーム・ディープブレス（座位）</h3>
+<p><strong>目的：</strong> 座位で姿勢と呼吸の中立を取り戻し、胸郭の可動を整える。</p>
+<p><strong>方法：</strong><br>
+1. 背筋を伸ばして座り、両腕を胸の前で交差。<br>
+2. 吸気で肋骨を開き、吐気で腕を軽く押し込みながら前に沈む。<br>
+3. 背中側に呼吸を通す意識で繰り返す。</p>
+<p><strong>ポイント：</strong> 肩ではなく“背中で呼吸する”感覚を優先。</p>
+<p><strong>誤り例：</strong> 背中が丸まる・首が力む・呼吸が止まる。</p>
+</div></div>
+
+<!-- -------- 出力反応サーキット -------- -->
+<div id="e-power" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-power')">&times;</span>
+<h3>e-2｜出力反応サーキット</h3>
+<p><strong>目的：</strong> 呼吸と出力を瞬時に切り替える能力を高める。</p>
+<p><strong>方法概要：</strong> ジャンプ、スクワット、スプリントリズムなどを3種目連続で実施。  
+<button onclick="openModal('e-power-detail')">詳細解説を見る</button></p>
+<p><strong>強度：</strong> 各種目45秒×3set／RPE8／HR160前後。</p>
+<p><strong>誤り例：</strong> 反動で跳ねる・呼吸を止める・テンポが乱れる。</p>
+</div></div>
+
+<!-- ===== e-2 出力反応サーキット 詳細 ===== -->
+<div id="e-power-detail" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-power-detail')">&times;</span>
+<h3>e-2｜出力反応サーキットの詳細方法</h3>
+<p><strong>目的：</strong> 呼吸で出力をコントロールし、瞬時の切り替えと動作リズムを教育する。</p>
+
+<p><strong>構成：</strong><br>
+① スクワット・リズム（45秒）<br>
+② ジャンプ・テンポ（45秒）<br>
+③ スプリント・リズム（45秒）<br>
+この3種目を連続で行い、1setを約2.5分とする。合計3set（セット間休息60〜90秒）。</p>
+
+<p><strong>方法：</strong><br>
+1. <em>スクワット・リズム：</em> 吐気で押し上げ、吸気で降下。テンポは「吐く＝出力、吸う＝姿勢」。<br>
+2. <em>ジャンプ・テンポ：</em> 膝と股関節を同時に使い、反動を最小限に。着地時は吸気で姿勢を立て直す。<br>
+3. <em>スプリント・リズム：</em> 3〜5歩の短距離反応で、吐気で加速・吸気で姿勢を再セット。骨盤主導を意識。<br><br>
+各種目を「止まらずにリズムで繋ぐ」ことが最大の狙い。</p>
+
+<p><strong>強度：</strong> 各種目45秒×3種目×3set（計約15分）／RPE8／HR160前後。</p>
+<p><strong>誤り例：</strong> 反動で跳ねる・呼吸を止める・テンポが乱れる・フォームが硬直する。</p>
+</div></div>
+
+<!-- -------- 肋骨回旋サーキット -------- -->
+<div id="e-rib" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-rib')">&times;</span>
+<h3>e-3｜肋骨回旋サーキット</h3>
+<p><strong>目的：</strong> 肋骨と肩甲帯の分離を高め、体幹のねじれ制御を教育する。</p>
+<p><strong>構成：</strong><br>
+① ニーリングリブターン <button onclick="openModal('e-rib1')">解説</button><br>
+② スプリットローテーション <button onclick="openModal('e-rib2')">解説</button><br>
+③ ツイストクランチ <button onclick="openModal('e-rib3')">解説</button><br>
+④ ハイプランクローテーション <button onclick="openModal('e-rib4')">解説</button><br>
+⑤ スティック・ローテーションリーチ <button onclick="openModal('e-rib5')">解説</button></p>
+<p><strong>総強度：</strong> 各6〜8分×3set（計約25分）／RPE7。</p>
+<p><strong>誤り例：</strong> 骨盤が回る・肩で回す・呼吸を止める。</p>
+</div></div>
+
+<!-- ===== 肋骨回旋5種目 ===== -->
+
+<!-- ニーリングリブターン -->
+<div id="e-rib1" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-rib1')">&times;</span>
+<h3>ニーリングリブターン</h3>
+<p><strong>目的：</strong> 骨盤を固定した状態で肋骨の回旋を引き出す。</p>
+<p><strong>方法：</strong><br>
+1. 片膝立ち姿勢で両腕を前方に伸ばす。<br>
+2. 吐気に合わせて肋骨を回旋させ、骨盤・両腕は正面を維持。<br>
+3. 吸気で戻す。</p>
+<p><strong>強度：</strong> 各方向10回×2set／RPE6。</p>
+<p><strong>誤り例：</strong> 骨盤・両腕が回る・腕で捻る・呼吸を止める。</p>
+</div></div>
+
+<!-- スプリットローテーション -->
+<div id="e-rib2" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-rib2')">&times;</span>
+<h3>スプリットローテーション</h3>
+<p><strong>目的：</strong> 前後に分けた脚位で、骨盤と肋骨の分離回旋を作る。</p>
+<p><strong>方法：</strong><br>
+1. 前後開脚のスプリット姿勢で両腕を前に伸ばす。<br>
+2. 前脚側へ肋骨を回旋、骨盤・両腕を安定。<br>
+3. 吐く息で回旋、吸気で戻す。</p>
+<p><strong>強度：</strong> 各方向10回×2set／RPE6〜7。</p>
+<p><strong>誤り例：</strong> 膝が動く・腰を反る・呼吸が浅い。</p>
+</div></div>
+
+<!-- ツイストクランチ -->
+<div id="e-rib3" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-rib3')">&times;</span>
+<h3>ツイストクランチ</h3>
+<p><strong>目的：</strong> 肋骨回旋と肩甲帯の分離を教育する。</p>
+<p><strong>方法：</strong><br>
+1. 仰向けで膝を90°に立てる。<br>
+2. 右（左）手を左大腿の上に置き、反対の手は床に。<br>
+3. 吐気で肋骨を右（左）方向に回旋し、手を大腿から膝へ滑らせる。<br>
+4. 吸気で戻す。<br>
+5. 肩を上げず、肋骨の動きで手が導かれる感覚を意識。</p>
+<p><strong>強度：</strong> 各方向10〜12回×2set／RPE6〜7。</p>
+<p><strong>誤り例：</strong> 肩で回す・腹筋で起きる・骨盤が動く。</p>
+</div></div>
+
+<!-- ハイプランクローテーション -->
+<div id="e-rib4" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-rib4')">&times;</span>
+<h3>ハイプランクローテーション</h3>
+<p><strong>目的：</strong> 体幹安定の中で胸郭を独立回旋させる。</p>
+<p><strong>方法：</strong><br>
+1. ハイプランク姿勢をとり、肋骨を回旋させる。<br>
+2. 肋骨が回旋すると片手が浮く。<br>
+3. 肋骨が回旋しきったら肩甲骨で腕を天井に伸ばす。<br>
+4. 吐気で肋骨を回旋、吸気で戻す。<br>
+5. 骨盤は常に正面を維持。</p>
+<p><strong>強度：</strong> 各方向8回×2set／RPE7。</p>
+<p><strong>誤り例：</strong> 腰を反る・骨盤が動く・腕で回旋・呼吸を止める。</p>
+</div></div>
+
+<!-- スティック・ローテーションリーチ -->
+<div id="e-rib5" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('e-rib5')">&times;</span>
+<h3>⑤ スティック・ローテーションリーチ</h3>
+<p><strong>目的：</strong> 肋骨と上肢を逆方向に回旋させ、胸郭分離と回旋制御を鍛える。</p>
+<p><strong>方法：</strong><br>
+1. 肩幅で立ち両手でスティックを持って胸の高さで構える。<br>
+2. 骨盤と下半身を固定したまま、<strong>スティックを左に回すときは肋骨を右へ、</strong>逆方向にも同様に動かす。<br>
+3. 呼吸は「吐きながらスティックを動かし、吸いながら戻す」。<br>
+4. 胸郭が“滑る”ように動き、肩が回らないことがポイント。</p>
+<p><strong>強度：</strong> 各方向10回×2set／RPE6。</p>
+<p><strong>ポイント：</strong> スティックの動きと肋骨の動きを<strong>あえて逆にする</strong>ことで、胸郭と肩甲帯の独立制御を体得。<br>
+「上半身を止め、胸郭を回す」ではなく、「スティックと胸郭を逆に流す」。</p>
+<p><strong>誤り例：</strong> 肩で引く・骨盤が回る・呼吸を止める。</p>
+</div></div>
+
+<footer>
+  <p class="footer-text">© 2025 adjustment-lab |<br>Design & Concept by H. Nishimoto</p>
+</footer>
+
+<style>
+footer {
+  text-align: center;
+  margin-top: 60px;
+  color: #b0bec5;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.footer-text {
+  display: inline-block;
+  text-align: center;
+  white-space: normal; /* スマホでの折返し許可 */
+  margin: 0 auto;
+}
+</style>
+  
+<script>
+function openModal(id){document.getElementById(id).style.display='block';}
+function closeModal(id){document.getElementById(id).style.display='none';}
+window.onclick=function(e){
+  const modals=document.getElementsByClassName('modal');
+  for(let m of modals){if(e.target==m){m.style.display='none';}}
+}
+
+window.addEventListener('touchstart', function(e){
+  const modals = document.getElementsByClassName('modal');
+  for(let m of modals){ if(e.target === m){ m.style.display='none'; } }
+});
+</script>
+
+</body>
+</html>
